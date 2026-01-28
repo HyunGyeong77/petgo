@@ -19,11 +19,31 @@
       margin-top:1.4rem;
 
       > .top {
+        display:flex;
+        flex-direction:column;
+        gap:1.5rem;
         padding-inline:0.5rem;
 
         > .close-btn {
+          display:flex;
           background:none;
           border:none;
+        }
+
+        > .join-layout {
+          display:flex;
+          justify-content:space-between;
+          
+          > a {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding-inline:30px;
+            outline:1px solid black;
+            border-radius:0.5rem;
+            line-height:2rem;
+            font-size:var(--font-primary-small);
+          }
         }
       }
     }
