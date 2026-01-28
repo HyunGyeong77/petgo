@@ -1,5 +1,5 @@
 import Logo from '@/components/common/logo/Logo';
-import styles from './header.module.scss';
+import styles from './header-mobile.module.scss';
 
 export default function HeaderMobile() {
   return (
