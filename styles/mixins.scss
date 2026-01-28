@@ -1,0 +1,8 @@
+@mixin auth-btn-hover {
+  transition: background-color 0.1s, color 0.1s;
+  
+  &:hover {
+    background:black;
+    color:white;
+  }
+}
