@@ -1,4 +1,5 @@
 import MenuButton from './components/menu-button/MenuButton';
+import MenuPanel from './components/menu-panel/MenuPanel';
 import {useState} from 'react';
 
 export default function Hamburger() {
@@ -11,6 +12,7 @@ export default function Hamburger() {
   return (
     <div>
       <MenuButton onClick={btnClick} />
+      <MenuPanel onClick={btnClick} />
     </div>
   )
 }

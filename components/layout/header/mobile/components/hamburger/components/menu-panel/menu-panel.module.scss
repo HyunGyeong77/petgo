@@ -1,0 +1,31 @@
+.bg {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 20%);
+
+  > .wrap {
+    position:absolute;
+    top:0;
+    right:0;
+    background:var(--background);
+    width:225px;
+    height:100%;
+    box-shadow:-4px 0 4px 0 rgba(0, 0, 0, 25%);
+
+    > .layout {
+      margin-top:1.4rem;
+
+      > .top {
+        padding-inline:0.5rem;
+
+        > .close-btn {
+          background:none;
+          border:none;
+        }
+      }
+    }
+  }
+}
