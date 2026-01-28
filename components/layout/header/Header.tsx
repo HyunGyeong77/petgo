@@ -5,7 +5,7 @@ import HeaderMobile from './mobile/HeaderMobile';
 import {useMediaQuery} from '@/lib/hooks/useMediaQuery';
 
 export default function Header() {
-  const isMobile = useMediaQuery("(max-width:375px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
 }
