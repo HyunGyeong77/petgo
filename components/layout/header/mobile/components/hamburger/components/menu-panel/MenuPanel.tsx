@@ -2,11 +2,20 @@ import styles from './menu-panel.module.scss';
 import Close from '../../assets/close.svg';
 import Image from 'next/image';
 import SafeLink from '@/components/common/safe-link/SafeLink';
+import {useRef, useEffect} from 'react';
+import gsap from 'gsap';
 
 export default function MenuPanel({onClick}: {onClick: (bool: boolean) => void}) {
+  const wrap = useRef(null);
+
+  useEffect(() => {
+    const wrapCur = wrap.current;
+    gsap.to(wrapCur, {right: 0, duration: 0.3});
+  }, []);
+
   return (
     <div className={styles.bg}>
-      <div className={styles.wrap}>
+      <div ref={wrap} className={styles.wrap}>
         <div className={styles.layout}>
           <div className={styles.top}>
             <button className={styles["close-btn"]} onClick={() => onClick(false)} aria-label="close button">
