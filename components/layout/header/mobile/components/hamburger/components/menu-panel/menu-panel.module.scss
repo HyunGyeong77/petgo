@@ -1,3 +1,5 @@
+@import '@/styles/mixins';
+
 .bg {
   position:fixed;
   top:0;
@@ -43,6 +45,8 @@
             border-radius:0.5rem;
             line-height:2rem;
             font-size:var(--font-primary-small);
+            background:white;
+            @include auth-btn-hover;
           }
         }
       }
