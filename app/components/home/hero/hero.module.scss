@@ -1,4 +1,16 @@
 .wrap {
   margin-top:72px;
   height:calc(100vh - 72px);
+  min-height:300px;
+
+  > .bg-box {
+    display:flex;
+    height:100%;
+
+    > .bg {
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+  }
 }
