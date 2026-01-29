@@ -6,7 +6,7 @@ import {useRef, useEffect} from 'react';
 import gsap from 'gsap';
 
 export default function MenuPanel({onClick}: {onClick: (bool: boolean) => void}) {
-  const wrap = useRef(null);
+  const wrap = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const wrapCur = wrap.current;

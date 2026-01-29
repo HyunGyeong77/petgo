@@ -3,7 +3,7 @@ import MenuPanel from './components/menu-panel/MenuPanel';
 import {useState} from 'react';
 
 export default function Hamburger() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const btnClick = (bool: boolean) => {
     setIsOpen(bool);
