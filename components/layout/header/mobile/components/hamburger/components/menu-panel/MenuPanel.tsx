@@ -17,6 +17,22 @@ export default function MenuPanel({onClick}: {onClick: (bool: boolean) => void})
               <SafeLink>회원가입</SafeLink>
             </div>
           </div>
+          <nav className={styles.nav}>
+            <ul>
+              <li>
+                <SafeLink>강아지 정보</SafeLink>
+              </li>
+              <li>
+                <SafeLink>산책 가이드</SafeLink>
+              </li>
+              <li>
+                <SafeLink>용품</SafeLink>
+              </li>
+              <li>
+                <SafeLink>병원 정보</SafeLink>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
