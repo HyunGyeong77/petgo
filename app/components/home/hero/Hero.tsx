@@ -31,12 +31,12 @@ export default function Hero() {
   return (
     <div className={styles.wrap}>
       <div className={styles["bg-box"]}>
-        <Image className={styles.bg} src={Background} alt="background image" width={1920} height={1275} />
+        <Image className={styles.bg} src={Background} alt="background image" width={1920} height={1275} loading="eager" />
       </div>
       <div className={styles["content-layout"]}>
         <div className={styles.content}>
           {isDesktop &&
-            <Image className={styles["dog-img"]} src={Dog} alt="dog image" width={450} height={354} />
+            <Image className={styles["dog-img"]} src={Dog} alt="dog image" width={450} height={354} loading="eager" />
           }
           <div className={styles.group}>
             <h2 className={styles.heading} ref={titleRef}>반려견을 더 잘 이해하는 방법</h2>
@@ -44,7 +44,7 @@ export default function Hero() {
           </div>
         </div>
         <div ref={notifyRef} className={styles.notify}>
-          <Image className={styles["down-img"]} src={DownIcon} alt="down icon" width={17} height={13} />
+          <Image className={styles["down-img"]} src={DownIcon} alt="down icon" width={17} height={13} loading="eager" />
           <span>아래로 스크롤</span>
         </div>
       </div>
