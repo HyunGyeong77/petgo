@@ -12,7 +12,7 @@ export default function Hamburger() {
   return (
     <div>
       <MenuButton onClick={btnClick} />
-      <MenuPanel onClick={btnClick} />
+      {isOpen && <MenuPanel onClick={btnClick} />}
     </div>
   )
 }
