@@ -13,12 +13,25 @@ export default function MenuPanel({onClick}: {onClick: (bool: boolean) => void})
     gsap.to(wrapCur, {right: 0, duration: 0.3});
   }, []);
 
+  const closeBtnClick = () => {
+    const wrapCur = wrap.current;
+
+    if(!wrapCur) return;
+
+    gsap.to(wrapCur, 
+      {
+        right: wrapCur.offsetWidth * -1, 
+        duration: 0.3, 
+        onComplete: () => onClick(false)
+      });
+  }
+
   return (
     <div className={styles.bg}>
       <div ref={wrap} className={styles.wrap}>
         <div className={styles.layout}>
           <div className={styles.top}>
-            <button className={styles["close-btn"]} onClick={() => onClick(false)} aria-label="close button">
+            <button className={styles["close-btn"]} onClick={closeBtnClick} aria-label="close button">
               <Image src={Close} alt="close image" width={25} height={25} />
             </button>
             <div className={styles["join-layout"]}>
