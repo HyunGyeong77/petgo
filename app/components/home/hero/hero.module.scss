@@ -1,11 +1,15 @@
 .wrap {
+  position:relative;
   margin-top:72px;
   height:calc(100vh - 72px);
   min-height:300px;
 
   > .bg-box {
+    position:absolute;
+    top:0;
     display:flex;
     height:100%;
+    z-index:-1;
 
     > .bg {
       width:100%;
@@ -13,4 +17,6 @@
       object-fit:cover;
     }
   }
+
+  
 }
