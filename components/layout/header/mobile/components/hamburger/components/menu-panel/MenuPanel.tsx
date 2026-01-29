@@ -10,11 +10,15 @@ export default function MenuPanel({onClick}: {onClick: (bool: boolean) => void})
 
   useEffect(() => {
     const wrapCur = wrap.current;
+    const body: HTMLElement = document.documentElement;
+
+    body.style.setProperty("overflow-y", "hidden");
     gsap.to(wrapCur, {right: 0, duration: 0.3});
   }, []);
 
   const closeBtnClick = () => {
     const wrapCur = wrap.current;
+    const body: HTMLElement = document.documentElement;
 
     if(!wrapCur) return;
 
@@ -22,7 +26,10 @@ export default function MenuPanel({onClick}: {onClick: (bool: boolean) => void})
       {
         right: wrapCur.offsetWidth * -1, 
         duration: 0.3, 
-        onComplete: () => onClick(false)
+        onComplete: () => {
+          body.style.setProperty("overflow-y", "visible");
+          onClick(false)
+        }
       });
   }
 
