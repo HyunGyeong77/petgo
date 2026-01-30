@@ -42,8 +42,8 @@ export default function MenuPanel({onClick}: {onClick: (bool: boolean) => void})
               <Image src={Close} alt="close image" width={25} height={25} />
             </button>
             <div className={styles["join-layout"]}>
-              <SafeLink>로그인</SafeLink>
-              <SafeLink>회원가입</SafeLink>
+              <SafeLink><span className={styles.link}>로그인</span></SafeLink>
+              <SafeLink><span className={styles.link}>회원가입</span></SafeLink>
             </div>
           </div>
           <nav className={styles.nav}>
