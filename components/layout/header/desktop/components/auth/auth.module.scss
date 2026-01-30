@@ -1,8 +1,12 @@
+@use '@/styles/mixins' as mixins;
+
 .wrap {
   display:flex;
   gap:10px;
 
-  > a {
+  .link {
+    white-space:nowrap;
+    display:flex;
     line-height:2rem;
     padding-inline:15px;
     outline:1px solid black;

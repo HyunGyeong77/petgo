@@ -4,8 +4,8 @@ import SafeLink from '@/components/common/safe-link/SafeLink';
 export default function Auth() {
   return (
     <div className={styles.wrap}>
-      <SafeLink>로그인</SafeLink>
-      <SafeLink>회원가입</SafeLink>
+      <SafeLink><span className={styles.link}>로그인</span></SafeLink>
+      <SafeLink><span className={styles.link}>회원가입</span></SafeLink>
     </div>
   );
 }
