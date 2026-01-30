@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as breakpoint;
+
 .wrap {
   position:absolute;
   top:50%;
@@ -10,7 +12,7 @@
     height:inherit;
 
     > li {
-      width:120px;
+      width:100px;
 
       > a {
         display:flex;
@@ -18,11 +20,21 @@
         align-items:center;
         width:100%;
         height:100%;
+        font-size:var(--font-primary-small);
 
         &:hover {
           background:var(--color-primary-green);
         }
       }
+    }
+  }
+}
+
+@media (max-width: breakpoint.$tablet) {
+  .wrap {
+    left:45%;
+    > ul > li {
+      width:80px;
     }
   }
 }
