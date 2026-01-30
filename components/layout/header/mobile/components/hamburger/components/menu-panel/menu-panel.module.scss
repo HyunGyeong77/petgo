@@ -1,4 +1,4 @@
-@import '@/styles/mixins';
+@use '@/styles/mixins' as mixins;
 
 .bg {
   position:fixed;
@@ -50,7 +50,7 @@
             line-height:2rem;
             font-size:var(--font-primary-small);
             background:white;
-            @include auth-btn-hover;
+            @include mixins.auth-btn-hover;
           }
         }
       }
