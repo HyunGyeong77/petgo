@@ -2,6 +2,7 @@ import styles from './preferences.module.scss';
 import SectionContent from '@/components/layout/section/content/SectionContent';
 import PreferencesLayout from './PreferencesLayout';
 import Card from './components/card/Card';
+import Link from './components/link/Link';
 import Like1 from './assets/images/like1.jpg';
 import Like2 from './assets/images/like2.jpg';
 import Like3 from './assets/images/like3.jpg';
@@ -53,6 +54,7 @@ export default function Preferences() {
             result="분리불안 또는 문제 행동의 원인이 될 수 있어요." 
           />
         </PreferencesLayout>
+        <Link />
       </article>
     </SectionContent>
   );
