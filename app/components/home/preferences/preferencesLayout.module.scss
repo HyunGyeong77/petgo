@@ -1,0 +1,16 @@
+.wrap {
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+
+  > .title {
+    font-size:var(--font-primary-body);
+    text-align:center;
+  }
+
+  > .cards-box {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+  }
+}
