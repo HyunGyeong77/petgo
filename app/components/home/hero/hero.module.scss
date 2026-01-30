@@ -1,4 +1,4 @@
-@import '@/styles/breakpoints';
+@use '@/styles/breakpoints' as breakpoint;
 
 .wrap {
   position:relative;
@@ -67,7 +67,7 @@
   }
 }
 
-@media (min-width:$desktop) {
+@media (min-width: breakpoint.$desktop) {
   .wrap {
     position:relative;
 
