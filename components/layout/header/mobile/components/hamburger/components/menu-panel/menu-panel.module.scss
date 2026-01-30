@@ -38,10 +38,9 @@
 
         > .join-layout {
           display:flex;
-          justify-content:space-between;
           
-          > a {
-            display:flex;
+          .link {
+            display:inline-flex;
             justify-content:center;
             align-items:center;
             padding-inline:30px;
@@ -50,6 +49,7 @@
             line-height:2rem;
             font-size:var(--font-primary-small);
             background:white;
+            white-space:nowrap;
             @include mixins.auth-btn-hover;
           }
         }
