@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as breakpoint;
+
 .header {
   position:fixed;
   width:100%;
@@ -11,5 +13,16 @@
     justify-content: space-between;
     align-items:center;
     height: 100%;
+  }
+}
+
+@media (min-width: breakpoint.$desktop) {
+  .header {
+    display:flex;
+    justify-content:center;
+
+    > .layout {
+      width:var(--desktop-layout);
+    }
   }
 }

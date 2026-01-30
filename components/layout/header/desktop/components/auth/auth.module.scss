@@ -1,0 +1,18 @@
+.wrap {
+  display:flex;
+  gap:10px;
+
+  > a {
+    line-height:2rem;
+    padding-inline:15px;
+    outline:1px solid black;
+    border-radius:0.5rem;
+    font-size:var(--font-primary-small);
+    transition: background-color 0.1s, color 0.1s;
+
+    &:hover {
+      color:white;
+      background:black;
+    }
+  }
+}
