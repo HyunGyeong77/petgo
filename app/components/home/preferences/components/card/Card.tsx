@@ -11,9 +11,7 @@ type Props = {
 export default function Card(props: Props) {
   return (
     <div className={styles.wrap}>
-      <div className={styles["img-box"]}>
-        <Image src={props.image.src} alt={props.image.alt} width={1920} height={1280} />
-      </div>
+      <Image src={props.image.src} alt={props.image.alt} width={1920} height={1280} />
       <div className={styles["contents-box"]}>
         <p className={styles.title}>{props.title}</p>
         <div className={styles["detail-box"]}>
