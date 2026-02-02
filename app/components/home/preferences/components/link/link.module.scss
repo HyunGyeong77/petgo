@@ -1,3 +1,5 @@
+@use '@/styles/breakpoints' as breakpoint;
+
 .wrap {
   display:flex;
   flex-direction:column;
@@ -13,12 +15,8 @@
       white-space:nowrap;
     }
   }
+}
 
-  > a {
-    outline:1px solid black;
-    border-radius:30px;
-    width:100%;
-    line-height:40px;
-    text-align:center;
-  }
+@media (min-width: breakpoint.$tablet) {
+  .wrap {width:720px;}
 }
