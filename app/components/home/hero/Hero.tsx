@@ -54,7 +54,7 @@ export default function Hero() {
           </div>
         </div>
         <div ref={notifyRef} className={styles.notify}>
-          <Image className={styles["down-img"]} src={DownIcon} alt="down icon" width={17} height={13} loading="eager" />
+          <Image className={styles["down-img"]} src={DownIcon} alt="down icon" width={17} height={13} loading="eager" unoptimized />
           <span>아래로 스크롤</span>
         </div>
       </div>
