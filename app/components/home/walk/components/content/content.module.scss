@@ -1,0 +1,24 @@
+.wrap {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:0.5rem;
+  outline:1px solid black;
+  border-radius:50%;
+  white-space:pre;
+  text-align:center;
+  height:max-content;
+  padding:1rem;
+  background:white;
+
+  > .recommend {
+    font-size:var(--font-primary-body);
+    font-weight:bold;
+  }
+
+  > .reason {
+    font-size:0.75rem;
+    line-height:15px;
+  }
+}
