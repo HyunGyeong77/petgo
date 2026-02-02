@@ -18,7 +18,7 @@
     gap:1rem;
     
     > .title {
-      font-size: 20px;
+      font-size:clamp(1.25rem, 3vw, 1.5rem);
     }
 
     > .detail-box {
@@ -36,16 +36,16 @@
             display:flex;
             gap:0.5rem;
             > span {
-              font-size:var(--font-primary-small);
-              line-height:var(--font-primary-small-line-height);
+              font-size:clamp(0.8rem, 2vw, 1rem);
+              line-height:clamp(1.3rem, 3vw, 1.5rem);
             }
           }
         }
       }
 
       > .result {
-        font-size:var(--font-primary-small);
-        line-height:var(--font-primary-small-line-height);
+        font-size:clamp(0.8rem, 2vw, 1rem);
+        line-height:clamp(1.3rem, 3vw, 1.5rem);
         text-align:center;
       }
     }
