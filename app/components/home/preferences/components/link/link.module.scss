@@ -1,0 +1,22 @@
+@use '@/styles/breakpoints' as breakpoint;
+
+.wrap {
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+
+  > h2 {
+    font-size:var(--font-primary-body);
+    font-weight:normal;
+    word-break:keep-all;
+    text-align:center;
+
+    > span {
+      white-space:nowrap;
+    }
+  }
+}
+
+@media (min-width: breakpoint.$tablet) {
+  .wrap {width:720px;}
+}
