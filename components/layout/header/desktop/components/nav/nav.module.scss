@@ -14,17 +14,16 @@
     > li {
       width:100px;
 
-      > a {
+      &:hover {
+        background:var(--color-primary-green);
+      }
+
+      .link {
         display:flex;
         justify-content:center;
         align-items:center;
-        width:100%;
-        height:100%;
+        height:72px;
         font-size:var(--font-primary-small);
-
-        &:hover {
-          background:var(--color-primary-green);
-        }
       }
     }
   }
