@@ -11,6 +11,7 @@
   height:max-content;
   padding:1rem;
   background:white;
+  width:100%;
 
   > .recommend {
     font-size:var(--font-primary-body);
@@ -20,5 +21,20 @@
   > .reason {
     font-size:0.75rem;
     line-height:15px;
+  }
+}
+
+@media (min-width: 600px) {
+  .wrap {
+    flex-direction:row;
+    width:380px;
+    padding:3rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .wrap {
+    white-space:unset;
+    word-break:keep-all;
   }
 }
