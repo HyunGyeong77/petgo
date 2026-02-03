@@ -8,10 +8,9 @@
   border-radius:50%;
   white-space:pre;
   text-align:center;
-  height:max-content;
-  padding:1rem;
   background:white;
   width:100%;
+  min-height:152px;
 
   > .recommend {
     font-size:var(--font-primary-body);
@@ -21,14 +20,6 @@
   > .reason {
     font-size:0.75rem;
     line-height:15px;
-  }
-}
-
-@media (min-width: 600px) {
-  .wrap {
-    flex-direction:row;
-    width:380px;
-    padding:3rem;
   }
 }
 

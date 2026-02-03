@@ -2,8 +2,6 @@
 
 export default function WalkDesktop() {
   return (
-    <section>
-      
-    </section>
+    <div></div>
   );
 }
