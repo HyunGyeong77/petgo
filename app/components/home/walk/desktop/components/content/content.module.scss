@@ -1,0 +1,31 @@
+.wrap {
+  position:relative;
+  width:max-content;
+  padding-left:2rem;
+
+  > .content-box {
+    position:absolute;
+    top:0;
+    display:flex;
+    height:180px;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    white-space:pre;
+    text-align:center;
+
+    &.left {right:0; width:251px;}
+    &.right {width:245px;}
+
+    > .recommend {
+      font-size:var(--font-primary-body);
+      font-weight:bold;
+    }
+
+    > .reason {
+      font-size:0.75rem;
+      line-height:15px;
+    }
+  }
+}
