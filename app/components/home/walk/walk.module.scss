@@ -8,8 +8,8 @@
   width:100%;
   
   > .title {
-    font-size:var(--font-primary-heading2);
-    font-weight:normal;
+    font-size:var(--font-primary-body);
+    font-weight:bold;
   }
 
   > .content {
@@ -24,6 +24,10 @@
 
 @media (min-width: breakpoint.$tablet) {
   .wrap {
+    > .title {
+      font-size:var(--font-primary-heading2);
+    }
+
     > .content {
       overflow:visible;
       padding: 0;
