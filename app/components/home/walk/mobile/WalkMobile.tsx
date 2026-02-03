@@ -1,6 +1,6 @@
 import styles from './walk-mobile.module.scss';
 import {contents} from '../components/content';
-import Content from '../components/content/Content';
+import Content from './content/Content';
 
 export default function WalkMobile() {
   return (
