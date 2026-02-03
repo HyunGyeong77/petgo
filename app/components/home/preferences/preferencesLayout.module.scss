@@ -19,6 +19,11 @@
 
 @media (min-width: breakpoint.$tablet) {
   .wrap {
+    > .title {
+      font-size:var(--font-primary-heading2);
+      font-weight:normal;
+    }
+
     > .cards-box {
       flex-direction:row;
     }

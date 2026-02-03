@@ -24,8 +24,8 @@ export default function Card(props: Props) {
       entries.forEach(entry => {
         if(entry.isIntersecting) {
           gsap.fromTo(wrapCur, 
-            {y: 70, opacity: 0},
-            {y: 0, opacity: 1, duration: 0.4}
+            {y: 100, opacity: 0},
+            {y: 0, opacity: 1, duration: 1}
           )
 
           observer.disconnect();
