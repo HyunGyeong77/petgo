@@ -2,7 +2,7 @@ import { SVGProps } from "react";
 
 const SVGComponent = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    id="home-stroll"
+    id="stroll"
     width="100%"
     height="100%"
     viewBox="0 0 1440 810"

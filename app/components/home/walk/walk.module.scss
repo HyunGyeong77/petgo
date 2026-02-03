@@ -25,6 +25,7 @@
 @media (min-width: breakpoint.$tablet) {
   .wrap {
     > .content {
+      overflow:visible;
       padding: 0;
     }
   }
