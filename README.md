@@ -15,11 +15,27 @@
 
 ## 기술 스택
 
-- ⚛️ **React / Next.js** - UI 및 서버사이드 렌더링
-- 🎨 **SCSS** - 스타일링
-- 📝 **TypeScript** - 타입 안정성
-- 🔧 **Git** - 버전 관리
-- 🖌️ **Figma** - 디자인
+🔹 Frontend
+- ⚛️ **React / Next.js**
+- 📝 **TypeScript**
+- 🎨 **SCSS**
+
+<br>
+
+🔹 Backend
+- 🐍 **Python** (FastAPI)
+- 🚀 **Render** (백엔드 배포)
+
+<br>
+
+🔹 Database
+- 🗄️ **Supabase**
+
+<br>
+
+🔹 Design
+- 🔧 **Git**
+- 🖌️ **Figma**
 
 <br>
 
@@ -30,5 +46,28 @@
 **📅1주차 (1/21 ~ 1/27)**
 
 - 1️⃣ **UI 디자인 완료** │ Figma를 활용한 데스크탑/모바일 UI 디자인 완료
+
+---
+
+### 🚧 진행 중
+
+- **Header 퍼블리싱 진행 중** │ Header 모바일 레이아웃까지 HTML/CSS 구현 완료
+
+<br><br>
+
+**📅2주차 (1/28 ~ 2/03)**
+
+- 1️⃣ **Header 구현 완료** │ 모바일, 데스크탑 반응형 및 햄버거 메뉴 제작
   
-- 2️⃣ **Header 퍼블리싱 진행 중** │ Header 모바일 레이아웃까지 HTML/CSS 구현 완료
+- 2️⃣ **Hero 구현 완료** │ 모바일, 데스크탑 반응형 및 Scroll Triggered Animation 제작
+  
+- 3️⃣ **Preferences 구현 완료** | 모바일, 데스크탑 반응형 및 Scroll Triggered Animation, Link Mouse Hover Event 제작
+
+- 4️⃣ **Walk 구현 완료** | 모바일, 데스크탑 반응형 및 Scroll Triggered Animation 제작
+
+---
+
+### 🚧 진행 중
+- **Supabase DB 구조 설계 및 데이터 작성**
+- **Backend 서버 구축**
+- **API 기반 데이터 패칭 및 화면 반영**
