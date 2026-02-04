@@ -1,0 +1,15 @@
+@use '@/styles/breakpoints' as breakpoint;
+
+.wrap {
+  > .title {
+    font-size:var(--font-primary-body);
+  }
+}
+
+@media (min-width: breakpoint.$tablet) {
+  .wrap {
+    > .title {
+      font-size:var(--font-primary-heading2);
+    }
+  }
+}

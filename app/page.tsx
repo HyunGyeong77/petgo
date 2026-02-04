@@ -3,6 +3,7 @@ import SectionLayout from '@/components/layout/section/SectionLayout';
 import Hero from './components/home/hero/Hero';
 import Preferences from './components/home/preferences/Preferences';
 import Walk from './components/home/walk/Walk';
+import Recommend from './components/home/recommend/Recommend';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <Preferences />
         <Walk />
+        <Recommend />
       </SectionLayout>
     </>
   );
