@@ -24,12 +24,7 @@
 
 🔹 Backend
 - 🐍 **Python** (FastAPI)
-- 🚀 **Render** (백엔드 배포)
-
-<br>
-
-🔹 Database
-- 🗄️ **Supabase**
+- 🐘 **PostgreSQL**
 
 <br>
 
