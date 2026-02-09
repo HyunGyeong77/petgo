@@ -1,9 +1,10 @@
 "use client";
 
 import styles from './recommend.module.scss';
-import SectionContent from "@/components/layout/section/content/SectionContent";
 import {useState, useEffect} from 'react';
 import {GetProductsResponse} from '@/types/api/product';
+import Carousel from './components/carousel/Carousel';
+import Loading from './components/loading/Loading';
 
 export default function Recommend() {
   const [products, setProducts] = useState<GetProductsResponse>({});
@@ -29,11 +30,18 @@ export default function Recommend() {
   }, []);
 
   return (
-    <SectionContent>
-      <article className={styles.wrap}>
-        <h2 className={styles.title}>반려견에게 이런 용품들을 추천해요!</h2>
-        
-      </article>
-    </SectionContent>
+    <article className={styles.wrap}>
+      <h2 className={styles.title}>반려견에게 이런 용품들을 추천해요!</h2>
+      <div className={styles["carousel-box"]}>
+        {loading ? 
+          <Loading /> :
+          Object.values(products).map((category, cindex) => (
+            <section key={category.label + cindex}>
+              <Carousel category={category} loading={loading} error={error} />
+            </section>
+          ))
+        }
+      </div>
+    </article>
   );
 }
