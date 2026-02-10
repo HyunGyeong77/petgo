@@ -6,6 +6,7 @@
   gap:1rem;
   width:100%;
   padding-inline:1rem;
+  max-width:var(--desktop-layout);
 
   > .title {
     font-size:var(--font-primary-body);
@@ -23,6 +24,17 @@
   .wrap {
     > .title {
       font-size:var(--font-primary-heading2);
+    }
+  }
+}
+
+@media (min-width: breakpoint.$desktop) {
+  .wrap {
+    overflow:hidden;
+    gap:5.5rem;
+
+    > .carousel-box {
+      gap:5.5rem;
     }
   }
 }
