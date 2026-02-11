@@ -5,6 +5,8 @@ import {Navigation} from 'swiper/modules';
 import Slide from '../slide/Slide';
 import 'swiper/css';
 import {ProductCategory} from '@/types/domain/product-category';
+import Arrow from '../svg/Arrow';
+import {useRef} from 'react';
 
 export type Props = {
   category: ProductCategory
@@ -12,6 +14,10 @@ export type Props = {
 
 export default function Carousel(props: Props) {
   const subCategory = Object.values(props.category.categories);
+
+  // swiper buttons
+  const prevRef = useRef<HTMLDivElement>(null);
+  const nextRef = useRef<HTMLDivElement>(null);
 
   // Tabs 용
   const tabLabels = subCategory.map(sc => sc.label);
@@ -26,18 +32,19 @@ export default function Carousel(props: Props) {
         <Tabs labels={tabLabels} />
       </div>
       <div className={styles["swiper-box"]}>
+        <div ref={prevRef} className={`recommend-prev ${styles.prev}`}><Arrow /></div>
         <Swiper
           className={styles.swiper}
           modules={[Navigation]}
           slidesPerView={1}
           spaceBetween={30}
-          navigation={{
-            nextEl: '.recommend-next',
-            prevEl: '.recommend-prev'
-          }}
           breakpoints={{
             600: {slidesPerView: 2},
             1024: {slidesPerView: 4}
+          }}
+          navigation={{
+            nextEl: nextRef.current,
+            prevEl: prevRef.current
           }}
         >
           {slideProducts.flatMap((productRecord) => (
@@ -51,6 +58,7 @@ export default function Carousel(props: Props) {
             ))
           ))}
         </Swiper>
+        <div ref={nextRef} className={`recommend-next ${styles.next}`}><Arrow /></div>
       </div>
     </div>
   );  
