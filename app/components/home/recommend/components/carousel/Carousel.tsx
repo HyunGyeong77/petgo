@@ -37,14 +37,32 @@ export default function Carousel(props: Props) {
           className={styles.swiper}
           modules={[Navigation]}
           slidesPerView={1}
+          slidesPerGroup={1}
           spaceBetween={30}
+          speed={500}
           breakpoints={{
-            600: {slidesPerView: 2},
-            1024: {slidesPerView: 4}
+            600: {
+              slidesPerView: 2,
+              slidesPerGroup: 2
+            },
+            1024: {
+              slidesPerView: 4,
+              slidesPerGroup: 4
+            }
           }}
           navigation={{
             nextEl: nextRef.current,
             prevEl: prevRef.current
+          }}
+          onSlideChangeTransitionStart={(swiper) => {
+            swiper.allowSlideNext = false;
+            swiper.allowSlidePrev = false;
+            swiper.allowTouchMove = false;
+          }}
+          onSlideChangeTransitionEnd={(swiper) => {
+            swiper.allowSlideNext = true;
+            swiper.allowSlidePrev = true;
+            swiper.allowTouchMove = true;
           }}
         >
           {slideProducts.flatMap((productRecord) => (
