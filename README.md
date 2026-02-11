@@ -23,8 +23,7 @@
 <br>
 
 🔹 Backend
-- 🐍 **Python** (FastAPI)
-- 🐘 **PostgreSQL**
+- <a href="https://github.com/HyunGyeong77/petgo-api">레포지토리 방문하기</a>
 
 <br>
 
@@ -66,3 +65,18 @@
 - **Supabase DB 구조 설계 및 데이터 작성**
 - **Backend 서버 구축**
 - **API 기반 데이터 패칭 및 화면 반영**
+
+<br><br>
+
+**📅3주차 (2/04 ~ 2/10)**
+
+- 1️⃣ **Supabase DB 구조 설계 및 데이터 작성 완료** │ 테이블 설계, 관계 설정 및 초기 데이터 구축 완료
+
+- 2️⃣ **Backend 서버 구축 완료** │ FastAPI 기반 API 서버 구축 및 Supabase 연동
+
+- 3️⃣ **API 기반 데이터 패칭 및 화면 반영 완료** | useEffect를 활용한 FastAPI GET 요청 처리 및 비동기 데이터 UI 렌더링 구현
+
+---
+
+### 🚧 진행 중
+- **Recommend Section 기능 및 애니메이션 구현**
