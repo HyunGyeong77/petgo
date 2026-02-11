@@ -23,7 +23,7 @@ export default function Loading() {
         <p>잠시만 기다려 주세요</p>
       </div>
       <div className={styles["img-box"]}>
-        <Image src={LoadingImg} alt="loading image" width={512} height={512} />
+        <Image src={LoadingImg} alt="loading image" width={512} height={512} unoptimized />
       </div>
       <span>{`첫 방문 또는 장시간 이용 후\n 새로고침 시 많이 지연될 수 있습니다 😭\n (예상 시간 30 ~ 60s)`}</span>
       <span>기다린 시간 : {waitingTime}초</span>
