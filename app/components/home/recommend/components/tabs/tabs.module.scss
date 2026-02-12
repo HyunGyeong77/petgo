@@ -1,13 +1,13 @@
 @use '@/styles/breakpoints' as breakpoint;
 
 .btn {
-  line-height:40px;
+  line-height:38px;
   font-size:10px;
   border-radius:50px;
   border:none;
   background:white;
   color:black;
-  outline:1px solid black;
+  border:1px solid black;
 }
 
 .select {

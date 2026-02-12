@@ -6,13 +6,15 @@ import Slide from '../slide/Slide';
 import 'swiper/css';
 import {ProductCategory} from '@/types/domain/product-category';
 import Arrow from '../svg/Arrow';
-import {useRef, useState, useId} from 'react';
+import {useRef, useState, useEffect, useId} from 'react';
+import gsap from 'gsap';
 
 export type Props = {
   category: ProductCategory
 }
 
 export default function Carousel(props: Props) {
+  const wrapRef = useRef<HTMLDivElement>(null);
   const subCategory = Object.values(props.category.categories);
 
   // swiper
@@ -39,8 +41,39 @@ export default function Carousel(props: Props) {
   // Slide
   const slideProducts = subCategory.map(sc => sc.products);
 
+  // animation
+  useEffect(() => {
+    if(!wrapRef.current) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          const target = entry.target;
+          const label = target.querySelector(`.${styles.label}`);
+          const tabs = target.querySelector(`.${styles["tabs-box"]}`);
+          const swiper = target.querySelector(`.${styles["swiper-box"]}`);
+  
+          const before = {y:50, opacity:0};
+          const after = {y:0, opacity:1, duration: 0.3};
+  
+          const tl = gsap.timeline();
+  
+          tl.fromTo(label, before, after)
+            .fromTo(tabs, before, after)
+            .fromTo(swiper, before, after)
+
+          observer.unobserve(target);
+        }
+      });
+    });
+
+    observer.observe(wrapRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={styles.wrap}>
+    <div ref={wrapRef} className={styles.wrap}>
       <h2 className={styles.label}>{props.category.label}</h2>
       <div className={styles["tabs-box"]}>
         <Tabs 
