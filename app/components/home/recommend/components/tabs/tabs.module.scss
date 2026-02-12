@@ -1,0 +1,23 @@
+@use '@/styles/breakpoints' as breakpoint;
+
+.btn {
+  line-height:38px;
+  font-size:10px;
+  border-radius:50px;
+  border:none;
+  background:white;
+  color:black;
+  border:1px solid black;
+}
+
+.select {
+  background:black;
+  color:white;
+}
+
+@media (min-width: breakpoint.$tablet) {
+  .btn {
+    padding-inline:1rem;
+    font-size:14px;
+  }
+}
