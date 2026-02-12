@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react';
 import {GetProductsResponse} from '@/types/api/product';
 import Carousel from './components/carousel/Carousel';
 import Loading from './components/loading/Loading';
+import MiniError from './components/error/MiniError';
 
 export default function Recommend() {
   const [products, setProducts] = useState<GetProductsResponse>({});
@@ -34,7 +35,9 @@ export default function Recommend() {
       <div className={styles.layout}>
         <h2 className={styles.title}>반려견에게 이런 용품들을 추천해요!</h2>
         <div className={styles["carousel-box"]}>
-          {loading ? 
+          {error ?
+            <MiniError /> :
+            loading ?
             <Loading /> :
             Object.values(products).map((category, cindex) => (
               <section key={category.label + cindex}>
