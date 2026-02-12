@@ -47,6 +47,11 @@
       right:0;
     }
 
+    :global(.swiper-button-disabled) {
+      opacity:0.3;
+      pointer-events:none;
+    }
+
     > .swiper {
       width:100%;
       min-width:0;

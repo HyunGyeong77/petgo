@@ -1,12 +1,12 @@
 import styles from './carousel.module.scss';
 import Tabs from '../tabs/Tabs';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import {Swiper, SwiperSlide, SwiperRef} from 'swiper/react';
 import {Navigation} from 'swiper/modules';
 import Slide from '../slide/Slide';
 import 'swiper/css';
 import {ProductCategory} from '@/types/domain/product-category';
 import Arrow from '../svg/Arrow';
-import {useRef} from 'react';
+import {useRef, useState, useId} from 'react';
 
 export type Props = {
   category: ProductCategory
@@ -15,25 +15,44 @@ export type Props = {
 export default function Carousel(props: Props) {
   const subCategory = Object.values(props.category.categories);
 
-  // swiper buttons
+  // swiper
+  const swiperRef = useRef<SwiperRef>(null);
   const prevRef = useRef<HTMLDivElement>(null);
   const nextRef = useRef<HTMLDivElement>(null);
+  const id = useId();
 
-  // Tabs 용
+  // Tabs 
   const tabLabels = subCategory.map(sc => sc.label);
+  const tabLength = tabLabels.length;
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [tabcoolTime, setTabCoolTime] = useState(false);
 
-  // Slide 용
+  // Tabs Handler
+  const changePage = (curIndex: number) => {
+    if(tabcoolTime) return;
+
+    const curPage = tabLength * curIndex;
+    swiperRef.current?.swiper.slideToLoop(curPage);
+    setSlideIndex(curIndex);
+  }
+
+  // Slide
   const slideProducts = subCategory.map(sc => sc.products);
 
   return (
     <div className={styles.wrap}>
       <h2 className={styles.label}>{props.category.label}</h2>
       <div className={styles["tabs-box"]}>
-        <Tabs labels={tabLabels} />
+        <Tabs 
+          labels={tabLabels} 
+          slideIndex={slideIndex}
+          changePage={changePage}
+        />
       </div>
       <div className={styles["swiper-box"]}>
-        <div ref={prevRef} className={`recommend-prev ${styles.prev}`}><Arrow /></div>
+        <div ref={prevRef} className={`${styles.prev} prev-${id}`}><Arrow /></div>
         <Swiper
+          ref={swiperRef}
           className={styles.swiper}
           modules={[Navigation]}
           slidesPerView={1}
@@ -51,18 +70,24 @@ export default function Carousel(props: Props) {
             }
           }}
           navigation={{
-            nextEl: nextRef.current,
-            prevEl: prevRef.current
+            prevEl: `.prev-${id}`,
+            nextEl: `.next-${id}`
           }}
           onSlideChangeTransitionStart={(swiper) => {
             swiper.allowSlideNext = false;
             swiper.allowSlidePrev = false;
             swiper.allowTouchMove = false;
+            setTabCoolTime(true);
           }}
           onSlideChangeTransitionEnd={(swiper) => {
             swiper.allowSlideNext = true;
             swiper.allowSlidePrev = true;
             swiper.allowTouchMove = true;
+            setTabCoolTime(false);
+          }}
+          onSlideChange={(swiper) => {
+            const curPage = swiper.realIndex / tabLength;
+            setSlideIndex(Math.floor(curPage));
           }}
         >
           {slideProducts.flatMap((productRecord) => (
@@ -76,7 +101,7 @@ export default function Carousel(props: Props) {
             ))
           ))}
         </Swiper>
-        <div ref={nextRef} className={`recommend-next ${styles.next}`}><Arrow /></div>
+        <div ref={nextRef} className={`${styles.next} next-${id}`}><Arrow /></div>
       </div>
     </div>
   );  
