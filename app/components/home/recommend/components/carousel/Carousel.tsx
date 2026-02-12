@@ -8,6 +8,7 @@ import {ProductCategory} from '@/types/domain/product-category';
 import Arrow from '../svg/Arrow';
 import {useRef, useState, useEffect, useId} from 'react';
 import gsap from 'gsap';
+import SectionLinkButton from '@/components/common/section-link-button/SectionLinkButton';
 
 export type Props = {
   category: ProductCategory
@@ -52,15 +53,18 @@ export default function Carousel(props: Props) {
           const label = target.querySelector(`.${styles.label}`);
           const tabs = target.querySelector(`.${styles["tabs-box"]}`);
           const swiper = target.querySelector(`.${styles["swiper-box"]}`);
-  
-          const before = {y:50, opacity:0};
+          const linkBox = target.querySelector(`.${styles["link-box"]}`);
+
+          
+          const before = {y:30, opacity:0};
           const after = {y:0, opacity:1, duration: 0.3};
-  
+          
           const tl = gsap.timeline();
-  
-          tl.fromTo(label, before, after)
-            .fromTo(tabs, before, after)
-            .fromTo(swiper, before, after)
+          const arr = [label, tabs, swiper, linkBox];
+
+          arr.forEach(el => {
+            tl.fromTo(el, before, after);
+          });
 
           observer.unobserve(target);
         }
@@ -135,6 +139,15 @@ export default function Carousel(props: Props) {
           ))}
         </Swiper>
         <div ref={nextRef} className={`${styles.next} next-${id}`}><Arrow /></div>
+      </div>
+      <div className={styles["link-box"]}>
+          <SectionLinkButton content={
+              <b>
+                {subCategory[slideIndex].label}
+                <span className={styles.more}> 더 알아보기</span>
+              </b>
+            } 
+          />
       </div>
     </div>
   );  
