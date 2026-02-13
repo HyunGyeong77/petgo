@@ -14,7 +14,7 @@ export default function Recommend() {
 
   const getProducts = async () => {
     try {
-      const res = await fetch("https://petgo-api.onrender.com/recommend");
+      const res = await fetch("https://petgo-api.onrender.com/home/recommend");
       if(!res.ok) throw new Error();
 
       const data = await res.json();
