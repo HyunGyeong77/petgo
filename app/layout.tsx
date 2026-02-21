@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.css";
+import ReactQueryProvider from "./providers/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "PetGo",
@@ -32,7 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );

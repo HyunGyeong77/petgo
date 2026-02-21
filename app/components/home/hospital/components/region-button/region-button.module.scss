@@ -1,0 +1,53 @@
+@use '@/styles/breakpoints' as breakpoint;
+
+.wrap {
+  position:relative;
+
+  .label-button {
+    width:100%;
+    line-height:32px;
+    outline:1px solid black;
+    border-radius:50px;
+    background:white;
+    color:black;
+    border:none;
+
+    &.disabled {
+      opacity:0.3;
+      pointer-events:none;
+    }
+
+    > .content {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding-inline:1rem;
+      font-size:var(--font-primary-small);
+
+      > .icon-box {
+        display:flex;
+
+        > .on {
+          transform:rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width:600px) {
+  .wrap {
+    flex:1;
+  }
+}
+
+@media (min-width:breakpoint.$tablet) {
+  .wrap .label-button {
+    line-height:56px;
+
+    > .content {
+      white-space:nowrap;
+      font-size:var(--font-primary-body);
+    }
+  }
+}
