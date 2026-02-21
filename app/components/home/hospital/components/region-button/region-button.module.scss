@@ -1,0 +1,32 @@
+.wrap {
+  position:relative;
+
+  .label-button {
+    width:100%;
+    line-height:32px;
+    border:1px solid black;
+    border-radius:50px;
+    background:white;
+    color:black;
+
+    &.disabled {
+      opacity:0.3;
+      pointer-events:none;
+    }
+
+    > .content {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding-inline:1rem;
+
+      > .icon-box {
+        display:flex;
+
+        > .on {
+          transform:rotate(180deg);
+        }
+      }
+    }
+  }
+}
