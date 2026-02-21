@@ -1,0 +1,50 @@
+.wrap {
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    z-index:1;
+    margin-top:0.5rem;
+    box-shadow:0 0 5px 2px rgba(0, 0, 0, 0.3);
+    border-radius:10px;
+    overflow:hidden;
+
+    &.hidden {
+      box-shadow:none;
+    }
+
+    > .regions-box {
+      display:flex;
+      flex-direction:column;
+      overflow:auto;
+      max-height:300px;
+  
+      &::-webkit-scrollbar {
+        width:7px;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background:#dfdfdf;
+        border-radius:100px;
+      }
+  
+      &::-webkit-scrollbar-track {
+        background:white;
+      }
+  
+      .region-button {
+        display:flex;
+        width:100%;
+        padding-block:0.5rem;
+        padding-left:0.5rem;
+        background:white;
+        color:black;
+        border:none;
+
+        &:hover {
+          background:var(--color-primary-green);
+          font-weight:bold;
+        }
+      }
+    }
+  }
