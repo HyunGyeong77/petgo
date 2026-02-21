@@ -1,0 +1,39 @@
+.wrap {
+  max-width:var(--desktop-layout);
+  width:100%;
+
+  > .layout {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    padding-inline:1rem;
+    overflow:hidden;
+    padding-bottom:5.5rem;
+
+    > .label {
+      font-size:var(--font-primary-body);
+    }
+
+    > .regions-box {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      width:100%;
+      gap:10px;
+    }
+
+    > .search {
+      width:100%;
+      line-height:2rem;
+      border:none;
+      border-radius:50px;
+      background:black;
+      font-size:var(--font-primary-body);
+
+      &.disabled {
+        opacity:0.3;
+        pointer-events:none;
+      }
+    }
+  }
+}

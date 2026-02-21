@@ -4,6 +4,7 @@ import Hero from './components/home/hero/Hero';
 import Preferences from './components/home/preferences/Preferences';
 import Walk from './components/home/walk/Walk';
 import Recommend from './components/home/recommend/Recommend';
+import Hospital from './components/home/hospital/Hospital';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Preferences />
         <Walk />
         <Recommend />
+        <Hospital />
       </SectionLayout>
     </>
   );
