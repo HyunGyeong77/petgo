@@ -99,42 +99,44 @@ export default function Hospital() {
     <article className={styles.wrap}>
       <section className={styles.layout}>
         <h2 className={styles.label}>내 지역 근처 병원을 알아보세요!</h2>
-        <div className={styles["regions-box"]}>
-          <RegionButton
-            config={{label: !selectedSido ? "시/도" : selectedSido.name, disabled: false}}
-            data={{regionList: sidoList}}
-            actions={{labelClick: toggleSido, selectRegion: selectRegion}}
-            state={{openMenu: openMenu === "sido", setOpenMenu: setOpenMenu}}
-          />
-          <RegionButton
-            config={{
-              label: !selectedSigungu ? "시/군/구" : selectedSigungu.name, 
-              disabled: (!selectedSido || !sigunguList?.length)
-            }}
-            data={{regionList: sigunguList}}
-            actions={{labelClick: toggleSigungu, selectRegion: selectRegion}}
-            state={{openMenu: openMenu === "sigungu", setOpenMenu: setOpenMenu}}
-          />
-          <RegionButton
-            config={{
-              label: !selectedEupmyeon ? "읍/면/동" : selectedEupmyeon.name, 
-              disabled: (!selectedSigungu || !eupmyeonList?.length)
-            }}
-            data={{regionList: eupmyeonList}}
-            actions={{labelClick: toggleEupmyeon, selectRegion: selectRegion}}
-            state={{openMenu: openMenu === "eupmyeon", setOpenMenu: setOpenMenu}}
-          />
-          <RegionButton
-            config={{
-              label: !selectedRi ? "리" : selectedRi.name, 
-              disabled: (!selectedEupmyeon || !riList?.length)
-            }}
-            data={{regionList: riList}}
-            actions={{labelClick: toggleRi, selectRegion: selectRegion}}
-            state={{openMenu: openMenu === "ri", setOpenMenu: setOpenMenu}}
-          />
+        <div className={styles["regions-search-box"]}>
+          <div className={styles["regions-box"]}>
+            <RegionButton
+              config={{label: !selectedSido ? "시/도" : selectedSido.name, disabled: false}}
+              data={{regionList: sidoList}}
+              actions={{labelClick: toggleSido, selectRegion: selectRegion}}
+              state={{openMenu: openMenu === "sido", setOpenMenu: setOpenMenu}}
+            />
+            <RegionButton
+              config={{
+                label: !selectedSigungu ? "시/군/구" : selectedSigungu.name, 
+                disabled: (!selectedSido || !sigunguList?.length)
+              }}
+              data={{regionList: sigunguList}}
+              actions={{labelClick: toggleSigungu, selectRegion: selectRegion}}
+              state={{openMenu: openMenu === "sigungu", setOpenMenu: setOpenMenu}}
+            />
+            <RegionButton
+              config={{
+                label: !selectedEupmyeon ? "읍/면/동" : selectedEupmyeon.name, 
+                disabled: (!selectedSigungu || !eupmyeonList?.length)
+              }}
+              data={{regionList: eupmyeonList}}
+              actions={{labelClick: toggleEupmyeon, selectRegion: selectRegion}}
+              state={{openMenu: openMenu === "eupmyeon", setOpenMenu: setOpenMenu}}
+            />
+            <RegionButton
+              config={{
+                label: !selectedRi ? "리" : selectedRi.name, 
+                disabled: (!selectedEupmyeon || !riList?.length)
+              }}
+              data={{regionList: riList}}
+              actions={{labelClick: toggleRi, selectRegion: selectRegion}}
+              state={{openMenu: openMenu === "ri", setOpenMenu: setOpenMenu}}
+            />
+          </div>
+          <button className={`${styles.search} ${!search && styles.disabled}`}>찾기</button>
         </div>
-        <button className={`${styles.search} ${!search && styles.disabled}`}>찾기</button>
       </section>
     </article>
   );
