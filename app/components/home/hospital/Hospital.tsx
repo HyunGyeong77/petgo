@@ -53,7 +53,7 @@ export default function Hospital() {
   // RegionButton Handler
   const toggleSido = () => {
     if(sidoFirstLoad && isLoading) {
-      sidoToast.current = toast.loading("지역을 불러오는 중입니다...");
+      sidoToast.current = toast.loading("지역을 불러오는 중입니다...", {toastId: "region_loading"});
       return;
     }
 
