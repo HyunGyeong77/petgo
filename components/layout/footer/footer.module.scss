@@ -9,4 +9,15 @@
     display:flex;
     width:max-content;
   }
+
+  > .footer__explain-box {
+    > .footer__title {
+      font-size:var(--font-primary-small);
+    }
+
+    > .footer__word {
+      font-size:10px;
+      color:var(--color-primary-gray);
+    }
+  }
 }
