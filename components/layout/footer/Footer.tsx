@@ -25,6 +25,10 @@ export default function Footer() {
           <FooterSocial />
         </nav>
       </div>
+      <div className={styles["footer__reserved-box"]}>
+        <p>© 2026 PetGo. All rights reserved.</p>
+        <p>본 사이트는 포트폴리오용으로 제작되었습니다.</p>
+      </div>
     </footer>
   );
 }

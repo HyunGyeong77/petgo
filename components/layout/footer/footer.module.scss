@@ -20,6 +20,14 @@
       color:var(--color-primary-gray);
     }
   }
+
+  > .footer__reserved-box {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    font-size:10px;
+    color:var(--color-primary-gray);
+  }
 }
 
 .footer__layout {
