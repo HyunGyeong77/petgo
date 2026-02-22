@@ -11,6 +11,10 @@
   }
 
   > .footer__explain-box {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+
     > .footer__title {
       font-size:var(--font-primary-small);
     }
