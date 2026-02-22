@@ -21,6 +21,12 @@
     }
   }
 
+  > .footer__links-box {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+
   > .footer__reserved-box {
     display:flex;
     flex-direction:column;
