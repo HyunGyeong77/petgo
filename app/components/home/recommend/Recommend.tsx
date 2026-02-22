@@ -31,7 +31,7 @@ export default function Recommend() {
   }, []);
 
   return (
-    <article className={styles.wrap}>
+    <article id="recommend" className={styles.wrap}>
       <div className={styles.layout}>
         <h2 className={styles.title}>반려견에게 이런 용품들을 추천해요!</h2>
         <div className={styles["carousel-box"]}>

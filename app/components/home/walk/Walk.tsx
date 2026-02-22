@@ -9,7 +9,7 @@ export default function Walk() {
   const isMobile = useMediaQuery("(max-width:768px)");
 
   return (
-    <article className={styles.wrap}>
+    <article id="walk" className={styles.wrap}>
       <h2 className={styles.title}>산책은 어떻게 하면 좋을까요??</h2>
       <section className={styles.content}>
         {isMobile ? <WalkMobile /> : <WalkDesktop />} 

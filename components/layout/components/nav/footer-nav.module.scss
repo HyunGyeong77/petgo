@@ -1,0 +1,23 @@
+.footer__nav {
+  display:flex;
+  gap:0.5rem;
+
+  > li {
+    position:relative;
+    display:flex;
+    align-items:center;
+
+    &::after {
+      content:"";
+      position:absolute;
+      top:6px;
+      right:-0.25rem;
+      display:block;
+      width:1px;
+      height:6px;
+      background:var(--color-primary-gray);
+    }
+
+    &:last-child::after {display:none;}
+  }
+}
