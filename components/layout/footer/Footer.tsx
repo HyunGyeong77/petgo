@@ -1,5 +1,6 @@
 import styles from './footer.module.scss';
 import Logo from '@/components/common/logo/Logo';
+import FooterNav from '../components/nav/FooterNav';
 
 export default function Footer() {
   return (
@@ -10,6 +11,11 @@ export default function Footer() {
       <div className={styles["footer__explain-box"]}>
         <b className={styles["footer__title"]}>Poppy Care</b>
         <p className={styles["footer__word"]}>강아지의 일상과 건강을 함께 고민하는 정보 플랫폼</p>
+      </div>
+      <div>
+        <nav className={styles["footer__layout"]}>
+          <FooterNav />
+        </nav>
       </div>
     </footer>
   );
