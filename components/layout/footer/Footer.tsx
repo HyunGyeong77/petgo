@@ -2,6 +2,7 @@ import styles from './footer.module.scss';
 import Logo from '@/components/common/logo/Logo';
 import FooterNav from '../components/nav/FooterNav';
 import FooterLegal from '../components/legal/FooterLegal';
+import FooterSocial from '../components/social/FooterSocial';
 
 export default function Footer() {
   return (
@@ -19,6 +20,9 @@ export default function Footer() {
         </nav>
         <nav className={styles["footer__layout"]}>
           <FooterLegal />
+        </nav>
+        <nav className={styles["footer__layout"]}>
+          <FooterSocial />
         </nav>
       </div>
     </footer>
