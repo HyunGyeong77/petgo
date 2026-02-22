@@ -2,9 +2,9 @@
 
 import styles from './footer.module.scss';
 import Logo from '@/components/common/logo/Logo';
-import FooterNav from '../components/nav/FooterNav';
-import FooterLegal from '../components/legal/FooterLegal';
-import FooterSocial from '../components/social/FooterSocial';
+import FooterNav from './components/nav/FooterNav';
+import FooterLegal from './components/legal/FooterLegal';
+import FooterSocial from './components/social/FooterSocial';
 import {useMediaQuery} from '@/lib/hooks/useMediaQuery';
 
 export default function Footer() {
