@@ -1,15 +1,20 @@
+"use client";
+
 import styles from './footer.module.scss';
 import Logo from '@/components/common/logo/Logo';
 import FooterNav from '../components/nav/FooterNav';
 import FooterLegal from '../components/legal/FooterLegal';
 import FooterSocial from '../components/social/FooterSocial';
+import {useMediaQuery} from '@/lib/hooks/useMediaQuery';
 
 export default function Footer() {
+  const isTablet = useMediaQuery("(min-width:768px)");
+
   return (
     <footer className={styles.footer}>
       <div className={styles["footer__inner"]}>
         <div className={styles["footer__logo-box"]}>
-          <Logo width={39} height={32} />
+          <Logo width={isTablet ? 60 : 39} height={32} />
         </div>
         <div className={styles["footer__explain-box"]}>
           <b className={styles["footer__title"]}>Poppy Care</b>
