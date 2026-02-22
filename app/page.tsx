@@ -5,6 +5,7 @@ import Preferences from './components/home/preferences/Preferences';
 import Walk from './components/home/walk/Walk';
 import Recommend from './components/home/recommend/Recommend';
 import Hospital from './components/home/hospital/Hospital';
+import Footer from '@/components/layout/footer/Footer';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Recommend />
         <Hospital />
       </SectionLayout>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,12 @@
+.footer {
+  max-width:var(--desktop-layout);
+  padding-inline:1rem;
+  padding-block:0.5rem;
+  background:#D7D7D7;
+  border-top:1px solid var(--color-primary-gray);
+
+  > .footer__logo-box {
+    display:flex;
+    width:max-content;
+  }
+}
