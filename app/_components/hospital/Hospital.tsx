@@ -114,6 +114,7 @@ export default function Hospital() {
             regions={sidoRegions}
             parent={true}
             onClick={regionClick}
+            isSido={true}
           />
           <HospitalRegion 
             region={district.name}

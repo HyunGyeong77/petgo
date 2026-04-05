@@ -4,6 +4,7 @@
 - Next.js (App Router)
 - TypeScript
 - SCSS
+- Yarn (npm 대신 사용)
 
 ## File Structure
 - app/: 페이지 라우팅
@@ -15,6 +16,9 @@
 ## Coding Rules
 - 함수형 컴포넌트만 사용
 - TypeScript 타입 명시 필수
+- Hook 사용 시 해당 파일 최상단 `"use client";` 작성
+- 상태 관리: `useState`
+- 생명주기/부수 효과 관리: `useEffect`
 
 ## Style Rules
 - 전역 스타일은 `styles/globals.css`에서 관리한다.
@@ -89,6 +93,10 @@ component-name/
 - class component 사용 금지
 - any 타입 금지
 - 인라인 스타일 금지
+
+## Package Rules
+- 프로젝트에서는 **Yarn**을 사용
+- npm 사용 금지
 
 <!-- ## Important
 기존 컴포넌트 수정 금지

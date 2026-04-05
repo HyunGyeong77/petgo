@@ -5,11 +5,10 @@
   width: 100%;
   z-index: 50;
   background: transparent;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   &.scrolled {
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 1);
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
 
     .logo,
@@ -35,11 +34,7 @@
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: #ffffff;
-  transition: color 0.3s;
+  width: 4rem;
 }
 
 .logoAccent {

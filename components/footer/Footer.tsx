@@ -25,7 +25,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <span className={styles.logo}>
-              Pet<span className={styles.logoAccent}>Go</span>
+              <img src="/logo.png" alt="logo" />
             </span>
             <p className={styles.tagline}>강아지의 일상과 건강을 함께 고민하는 정보 플랫폼</p>
             <p className={styles.company}>Poppy Care</p>

@@ -59,7 +59,7 @@ export default function Walk() {
                 {tip.bubble}
                 <span className={styles.bubbleTail} />
               </div>
-              <div>
+              <div className={styles.tip}>
                 <p className={styles.cardTitle}>{tip.title}</p>
                 <p className={styles.cardDesc}>{tip.desc}</p>
               </div>

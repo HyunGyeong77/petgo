@@ -7,17 +7,14 @@ interface Props {
   regions: Regions[] | null
   parent?: boolean
   onClick: (region: Regions) => void
+  isSido?: boolean
 }
 
 export default function HospitalRegion(props: Props) {
-  const { region, regions, onClick, parent } = props;
+  const { region, regions, onClick, parent, isSido } = props;
   const [menuActive, setMenuActive] = useState<boolean>(false);
-  const [isCity, setIsCity] = useState<boolean>(false);
+  const isCity = isSido !== undefined;
   const selectRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if(region === sido) setIsCity(true);
-  }, []);
 
   useEffect(() => {
     if(!menuActive) return;

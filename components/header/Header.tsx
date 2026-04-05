@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './header.module.scss';
 
@@ -12,20 +12,38 @@ const NAV_ITEMS = [
 ] as const;
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  const isScrolled = scrolled || menuOpen;
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      headerRef.current?.style.setProperty("transition", "none");
+    } else {
+      const timer = setTimeout(() => {
+        headerRef.current?.style.setProperty("transition", "background-color 0.3s ease, box-shadow 0.3s ease");
+      }, 60);
+      return () => clearTimeout(timer);
+    }
+  }, [menuOpen]);
+
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+    <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <Link href="#" className={styles.logo}>
-          Pet<span className={styles.logoAccent}>Go</span>
+          <img src="/logo.png" alt="logo" />
         </Link>
 
         <nav className={styles.nav}>
