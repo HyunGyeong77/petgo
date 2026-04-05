@@ -1,0 +1,83 @@
+.selectWrapper {
+  position: relative;
+}
+
+.city {width: 150px;}
+.notCity {width: 111px;}
+
+.select {
+  position: relative;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  background: #ffffff;
+  width: 100%;
+  color: #9ca3af;
+  text-align:left;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  white-space: nowrap;
+
+  &:hover:not(:disabled) {
+    border-color: #fbbf24;
+  }
+
+  &.selectActive {
+    color: #111827;
+  }
+
+  &.selectDisabled {
+    color: #d1d5db;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+  }
+}
+
+.selectIcon {
+  position: absolute;
+  right: 0.625rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+.menu {
+  position: absolute;
+  margin-top: 0.5rem;
+  background: #fff;
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.07);
+  overflow: auto;
+  display: none;
+
+  &.menuActive {
+    display: block;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(221, 221, 221);
+    border-radius: 9999px;
+  }
+}
+
+.menuButton {
+  display: flex;
+  width: 100%;
+  padding-block: 0.5rem;
+  padding-left: 0.5rem;
+
+  &:hover {
+    background: rgb(255 251 235);
+  }
+}

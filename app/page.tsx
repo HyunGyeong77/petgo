@@ -1,24 +1,23 @@
-import Header from '@/components/layout/header/Header';
-import SectionLayout from '@/components/layout/section/SectionLayout';
-import Hero from './components/home/hero/Hero';
-import Preferences from './components/home/preferences/Preferences';
-import Walk from './components/home/walk/Walk';
-import Recommend from './components/home/recommend/Recommend';
-import Hospital from './components/home/hospital/Hospital';
-import Footer from '@/components/layout/footer/Footer';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
+import HeroSection from './_components/hero-section/Hero';
+import Preferences from './_components/preferences/Preferences';
+import Walk from './_components/walk/Walk';
+import Recommend from './_components/recommend/Recommend';
+import Hospital from './_components/hospital/Hospital';
 
-export default function Home() {
+export default function Page() {
   return (
-    <>
+    <div>
       <Header />
-      <SectionLayout>
-        <Hero />
+      <main>
+        <HeroSection />
         <Preferences />
         <Walk />
         <Recommend />
         <Hospital />
-      </SectionLayout>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }

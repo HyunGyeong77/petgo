@@ -1,0 +1,54 @@
+.section {
+  padding: 5rem 0;
+  background: rgba(251, 191, 36, 0.04);
+}
+
+.inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #d97706;
+  background: #fef3c7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.75rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+  }
+}
+
+.subheading {
+  font-size: 0.875rem;
+  color: #6b7280;
+  max-width: 28rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid #f3f4f6;
+}
