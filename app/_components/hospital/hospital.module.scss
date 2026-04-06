@@ -34,48 +34,6 @@
   }
 }
 
-.selectWrapper {
-  position: relative;
-}
-
-.select {
-  appearance: none;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  padding: 0.5rem 2.5rem 0.5rem 1rem;
-  font-size: 0.875rem;
-  font-family: inherit;
-  background: #ffffff;
-  color: #9ca3af;
-  min-width: 6.875rem;
-  cursor: pointer;
-  transition: border-color 0.2s;
-
-  &:hover:not(:disabled) {
-    border-color: #fbbf24;
-  }
-
-  &.selectActive {
-    color: #111827;
-  }
-
-  &.selectDisabled {
-    color: #d1d5db;
-    border-color: #e5e7eb;
-    cursor: not-allowed;
-  }
-}
-
-.selectIcon {
-  position: absolute;
-  right: 0.625rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9ca3af;
-  pointer-events: none;
-  font-size: 1rem;
-}
-
 .searchBtn {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;

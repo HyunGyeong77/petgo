@@ -5,8 +5,9 @@ import Like3Img from './assets/like3.webp';
 import Bad1Img from './assets/bad1.webp';
 import Bad2Img from './assets/bad2.webp';
 import Bad3Img from './assets/bad3.webp';
+import PreferenceCard from './preference-card/PreferenceCard';
 
-interface PreferenceCard {
+export interface PreferenceCard {
   img: string;
   alt: string;
   title: string;
@@ -61,28 +62,6 @@ const DISLIKES: PreferenceCard[] = [
     note: '분리불안 또는 문제 행동의 원인이 될 수 있어요.',
   },
 ];
-
-function PreferenceCard({ card }: { card: PreferenceCard }) {
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardImageWrapper}>
-        <img src={card.img} alt={card.alt} className={styles.cardImage} />
-      </div>
-      <div className={styles.cardBody}>
-        <p className={styles.cardTitle}>{card.title}</p>
-        <ul className={styles.cardList}>
-          {card.items.map((item) => (
-            <li key={item} className={styles.cardItem}>
-              <span className={styles.bullet}>•</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p className={styles.cardNote}>{card.note}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function Preferences() {
   return (
