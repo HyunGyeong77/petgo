@@ -5,6 +5,7 @@ import styles from './recommend.module.scss';
 import { supabase } from '@/lib/supabase';
 import { showToast } from '@/lib/toast';
 import CategoryBlock from './category-block/CategoryBlock';
+import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';
 
 export interface Product {
   description: string;
@@ -30,36 +31,42 @@ export default function Recommend() {
     const fetchData = async () => {
       try {
         const { data, error } = await supabase
-        .from("category_tree").select("result").single();
+          .from('category_tree')
+          .select('result')
+          .single();
 
-        if(error) {throw new Error(error.message);}
+        if (error) { throw new Error(error.message); }
 
         setProducts(data.result);
       } catch (err) {
         console.error('Error: ', err);
-        showToast('error', "상품 목록을 불러오는데 실패했습니다.");
+        showToast('error', '상품 목록을 불러오는데 실패했습니다.');
       }
-    }
+    };
 
     fetchData();
   }, []);
-  
-  if(!products) return null;
+
+  if (!products) return null;
 
   return (
     <section id="recommend" className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.sectionHeader}>
-          <span className={styles.badge}>Product Recommendation</span>
-          <h2 className={styles.heading}>반려견에게 이런 용품들을 추천해요!</h2>
-          <p className={styles.subheading}>
-            수의사와 전문가가 엄선한 반려견 필수 용품들을 카테고리별로 확인해보세요
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className={styles.sectionHeader}>
+            <span className={styles.badge}>Product Recommendation</span>
+            <h2 className={styles.heading}>반려견에게 이런 용품들을 추천해요!</h2>
+            <p className={styles.subheading}>
+              수의사와 전문가가 엄선한 반려견 필수 용품들을 카테고리별로 확인해보세요
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className={styles.card}>
-          {Object.values(products).map(product => (
-            <CategoryBlock key={product.label} products={product} />
+          {Object.values(products).map((product, idx) => (
+            <ScrollReveal key={product.label} delay={idx as 0 | 1 | 2 | 3 | 4 | 5}>
+              <CategoryBlock products={product} />
+            </ScrollReveal>
           ))}
         </div>
       </div>

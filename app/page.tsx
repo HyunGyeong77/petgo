@@ -1,6 +1,6 @@
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
-import HeroSection from './_components/hero-section/Hero';
+import HeroSection from './_components/hero/Hero';
 import Preferences from './_components/preferences/Preferences';
 import Walk from './_components/walk/Walk';
 import Recommend from './_components/recommend/Recommend';
