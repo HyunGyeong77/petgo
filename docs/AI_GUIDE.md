@@ -84,6 +84,38 @@ component-name/
 
 - Props와 상태 변경 시 변경에 대한 책임은 컴포넌트 내에서 처리하고, 외부에서 직접적인 상태 변경은 지양한다.
 
+## TypeScript Rules
+- 모든 변수, 함수, 반환값에 타입 명시를 기본으로 한다.
+- 타입 추론에 의존하지 않고, 의도를 명확하게 드러낸다.
+- 기본적으로 **type** 사용을 원칙으로 한다.
+- **interface**는 아래 경우에만 사용한다
+  - 객체 구조를 확장(extends) 해야 하는 경우
+  - 선언 병합(declaration merging)이 필요한 경우
+
+예시:
+
+기본: type 사용
+
+```ts
+type User = {
+  name: string;
+  age: number;
+};
+```
+
+
+확장이 필요한 경우만 interface
+
+```ts
+interface Animal {
+  name: string;
+}
+
+interface Dog extends Animal {
+  bark(): void;
+}
+```
+
 ## Naming Convention
 - 컴포넌트: PascalCase (ex: Header.tsx)
 - 함수/변수: camelCase
@@ -98,7 +130,7 @@ component-name/
 - 프로젝트에서는 **Yarn**을 사용
 - npm 사용 금지
 
-<!-- ## Important
+## Important
 기존 컴포넌트 수정 금지
-새 기능은 반드시 새로운 파일로 생성할 것 -->
+새 기능은 반드시 새로운 파일로 생성할 것
 

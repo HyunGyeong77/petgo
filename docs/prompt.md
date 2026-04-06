@@ -11,63 +11,39 @@
 
 ---
 
-# Header 생성
+# SignUp Page 제작
 
-components/Header.tsx 파일을 생성해줘.
-
-요구사항:
-- feature.txt 참고해서 기능 추가 및 변경
-- index.html 내부 header 요소 스타일 참고
-- sticky header 
-
----
-
-# Sections 생성
-
-## Hero Section
-
-app/_components/HeroSection.tsx 파일을 생성해줘
+위치:
+`app/signup/*`
 
 요구사항:
-- index.html 내부 main 요소의 first-child section 요소 스타일 참고
-
-
-## Preferences Section
-
-app/_components/Preferences.tsx 파일을 생성해줘
-
-요구사항:
-- index.html 내부 id="preferences" 요소 스타일 참고
-
-
-## Walk Section
-
-app/_components/Walk.tsx 파일을 생성해줘
-
-요구사항:
-- index.html 내부 id="walk" 요소 스타일 참고
-
-
-## Recommend Section
-
-app/_components/Recommend.tsx 파일을 생성해줘
-
-요구사항:
-- index.html 내부 id="recommend" 요소 스타일 참고
-
-
-## Hospital Section
-
-app/_components/Hospital.tsx 파일을 생성해줘
-
-요구사항:
-- index.html 내부 id="hospital" 요소 스타일 참고
-
----
-
-# Footer 생성
-
-components/Footer.tsx 파일을 생성해줘
-
-요구사항:
-- index.html 내부 footer 요소 스타일 참고
+- 회원가입 페이지 제작
+- `app/signup/page.tsx` 라우팅 대상 파일
+- 디폴트 색상
+  - #f59e0b, 
+  - #111827, 
+  - #fff, 
+  - #fef3c7
+- 제목, 닉네임, 이메일/비밀번호 입력, 제출 버튼 포함
+- 유효성 안내 문구 추가
+  - 닉네임
+    - 2~5자 사이로 입력해주세요
+    - 한글, 영문, 숫자 사용 가능
+    - 특수문자는 사용할 수 없습니다
+  - 이메일
+    - 올바른 이메일 형식으로 입력해주세요 (예: user@example.com)
+  - 비밀번호
+    - 8자 이상, 영문 대문자, 소문자, 숫자 포함
+    - 최소 1개의 특수문자(!@#$%^&*) 포함
+    - 다른 사람과 공유하지 마세요
+- 회원가입 안내 문구 버튼 추가
+  - 본 사이트는 포트폴리오 사이트입니다
+  - 회원가입 직후 생성된 임시 계정은 1일 동안 유지되며, 사용하지 않으면 자동으로 삭제됩니다
+  - 안내를 확인했으며, 회원가입을 진행합니다
+- 회원가입 진행 불가 사유
+  - 닉네임, 이메일/비밀번호 미기입
+  - 회원가입 안내 문구 버튼 미수락
+- 입력 스타일
+  - 유효한 입력: 입력 필드 강조(초록 테두리 등)
+  - 유효하지 않은 입력: 입력 필드 강조(빨간 테두리 등)
+- Wrapper를 뷰포트 정중앙에 위치

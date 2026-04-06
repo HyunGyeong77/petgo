@@ -56,7 +56,7 @@ export default function Header() {
 
         <div className={styles.actions}>
           <Link href="#" className={styles.loginLink}>로그인</Link>
-          <Link href="#" className={styles.signupBtn}>회원가입</Link>
+          <Link href="/signup" className={styles.signupBtn}>회원가입</Link>
         </div>
 
         <button
