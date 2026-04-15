@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react';
 import styles from './input.module.scss';
+import { useState } from 'react';
 
 type InputProps = {
   label: string;
@@ -24,6 +27,10 @@ const Input: React.FC<InputProps> = ({
   required = false,
   hint,
 }) => {
+  // type이 password 일 때만 사용
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const typePassword = type === "password";
+
   const inputClass = `${styles.input} ${
     isValid === true ? styles.valid : isValid === false ? styles.invalid : ''
   }`;
@@ -35,12 +42,24 @@ const Input: React.FC<InputProps> = ({
         {required && <span className={styles.required}>*</span>}
       </label>
       <input
-        type={type}
+        type={!typePassword ? type : (showPassword ? "text" : "password")}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className={inputClass}
+        className={`${inputClass} ${typePassword && styles.inputPassword}`}
       />
+      {typePassword && 
+        <button 
+          className={styles.screenBtn} 
+          onClick={(e) => {
+            e.preventDefault();
+            setShowPassword(prev => !prev)
+          }}
+          aria-label={showPassword ? "패스워드 숨기기" : "패스워드 보이기"}
+        >
+          <i className={showPassword ? "ri-eye-off-fill" : "ri-eye-fill"}></i>
+        </button>
+      }
       {hint && hint.length > 0 && (
         <ul className={styles.hintList}>
           {hint.map((h, i) => (
