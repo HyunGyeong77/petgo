@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ToastContainer } from 'react-toastify';
+import { AuthProvider } from '@/providers/AuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import '@/styles/globals.css';
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko">
+    <html lang="ko" data-scroll-behavior="smooth">
       <head>
         <link
           rel="stylesheet"
@@ -18,11 +19,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <ToastContainer
-          position="top-right"
-          autoClose={2000}
-        />
-        {children}
+        <AuthProvider>
+          <ToastContainer
+            className="toast-container"
+            position="top-right"
+            autoClose={2000}
+            pauseOnHover={false}
+          />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,8 +1,11 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './header.module.scss';
+import { useAuth } from '@/providers/AuthContext';
+import { useScroll } from './_hooks/useScroll';
+import { useMenu } from './_hooks/useMenu';
+import { ROUTES } from '@/constants/routes';
 
 const NAV_ITEMS = [
   { label: '강아지 정보', href: '#preferences' },
@@ -12,35 +15,16 @@ const NAV_ITEMS = [
 ] as const;
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState<boolean>(false);
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const headerRef = useRef<HTMLElement>(null);
+  const { scrolled } = useScroll();
+  const { menuOpen, setMenuOpen, isScrolled } = useMenu(scrolled);
 
-  const isScrolled = scrolled || menuOpen;
+  const auth = useAuth();
+  if(!auth) return null;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (menuOpen) {
-      headerRef.current?.style.setProperty("transition", "none");
-    } else {
-      const timer = setTimeout(() => {
-        headerRef.current?.style.setProperty("transition", "background-color 0.3s ease, box-shadow 0.3s ease");
-      }, 60);
-      return () => clearTimeout(timer);
-    }
-  }, [menuOpen]);
-
+  const { user, logout } = auth;
+ 
   return (
-    <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+    <header id="header" className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <Link href="#" className={styles.logo}>
           <img src="/logo.png" alt="logo" />
@@ -55,8 +39,17 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Link href="#" className={styles.loginLink}>로그인</Link>
-          <Link href="/signup" className={styles.signupBtn}>회원가입</Link>
+          {user ? (
+            <>
+              <Link href={ROUTES.app.profile} className={styles.loginLink}>내 정보</Link>
+              <button className={styles.signupBtn} onClick={logout}>로그아웃</button>
+            </>
+          ) : (
+            <>
+              <Link href={ROUTES.auth.login} className={styles.loginLink}>로그인</Link>
+              <Link href={ROUTES.auth.signup} className={styles.signupBtn}>회원가입</Link>
+            </>
+          )}
         </div>
 
         <button
@@ -81,8 +74,8 @@ export default function Header() {
             </Link>
           ))}
           <div className={styles.mobileActions}>
-            <Link href="#" className={styles.loginLink}>로그인</Link>
-            <Link href="#" className={styles.signupBtn}>회원가입</Link>
+            <Link href={ROUTES.auth.login} className={styles.loginLink}>로그인</Link>
+            <Link href={ROUTES.auth.signup} className={styles.signupBtn}>회원가입</Link>
           </div>
         </div>
       )}

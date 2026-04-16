@@ -11,6 +11,9 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.101.1",
     "@tanstack/react-query": "^5.90.21",
+    "@types/google.accounts": "^0.0.18",
+    "argon2": "^0.44.0",
+    "firebase": "^12.11.0",
     "gsap": "^3.14.2",
     "next": "16.1.4",
     "react": "19.2.3",
