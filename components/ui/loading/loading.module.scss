@@ -1,0 +1,24 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  z-index: 100;
+  background: #fff;
+}
+
+.img {
+  width: 150px;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+}
