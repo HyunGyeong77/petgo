@@ -6,6 +6,11 @@ import Input from '@/components/ui/input/Input';
 import Button from '@/components/ui/button/Button';
 import Checkbox from '@/components/ui/checkbox/Checkbox';
 import { useSignupForm } from './_hooks/useSignupForm';
+import { supabase } from '@/lib/supabase';
+import { showToast } from '@/utils/toast';
+import { useRouter } from 'next/navigation';
+import Link from '@/components/ui/link/Link';
+import { ROUTES } from '@/constants/routes';
 
 export default function Page() {
   const {
@@ -13,19 +18,55 @@ export default function Page() {
     email, setEmail,
     password, setPassword,
     isAgreed, setIsAgreed,
-    errors, isValid,
+    errors, isValid, 
     isFormValid
   } = useSignupForm();
+  
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isFormValid) return;
-    alert('회원가입이 완료되었습니다!');
+
+    try {
+      const { error: dbError } = await supabase
+        .rpc("insert_site_user_if_not_exists", {
+          p_email: email,
+          p_display_name: nickname,
+          p_auth_provider: "site"
+        });
+      
+      if(dbError) throw new Error(dbError.message);
+
+      const { error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}${ROUTES.auth.authCallBack}`,
+        }
+      });
+
+      if(authError) {
+        // signUp에서 문제가 발생했으면 rpc에서 생성된 유저를 없앱니다.
+        await supabase.rpc("delete_users", {
+          p_email: email
+        });
+        
+        throw new Error(authError.message);
+      }
+
+      router.push(`${ROUTES.auth.checkEmail}?email=${encodeURIComponent(email)}`);
+    } catch (err) {
+      showToast("error", "이메일 발송 중 문제가 발생했습니다. 다시 시도해 주세요.");
+      console.log(err);
+    }
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
+        <Link href={ROUTES.app.home} direction="left" value="이전" />
+
         <h1 className={styles.title}>회원가입</h1>
 
         <div className={styles.notice}>
