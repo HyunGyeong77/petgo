@@ -1,0 +1,11 @@
+.link {
+  display:flex;
+  gap: 0.2rem;
+  transition: color 0.2s;
+  font-size: 0.8rem;
+  width: max-content;
+
+  &:hover {
+    color: #f59e0b;
+  }
+}

@@ -43,3 +43,7 @@ button {
   border: none;
   background: none;
 }
+
+.toast-container {
+  top: 80px;
+}
