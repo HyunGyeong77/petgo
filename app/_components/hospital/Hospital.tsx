@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import styles from './hospital.module.scss';
 import { supabase } from '@/lib/supabase';
-import { showToast } from '@/lib/toast';
+import { showToast } from '@/utils/toast';
 import HospitalRegion from './hospital-region/HospitalRegion';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';
 

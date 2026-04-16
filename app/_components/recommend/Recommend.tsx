@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import styles from './recommend.module.scss';
 import { supabase } from '@/lib/supabase';
-import { showToast } from '@/lib/toast';
+import { showToast } from '@/utils/toast';
 import CategoryBlock from './category-block/CategoryBlock';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';
 
