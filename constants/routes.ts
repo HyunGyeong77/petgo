@@ -1,8 +1,8 @@
 export const ROUTES = {
   auth: {
-    login: "/login",
-    signup: "/signup",
-    checkEmail: "/check-email",
+    login: "/auth/login",
+    signup: "/auth/signup",
+    checkEmail: "/auth/check-email",
     authCallBack: "/auth/callback"
   },
   app: {
