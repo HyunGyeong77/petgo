@@ -1,0 +1,61 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sectionBookmark {
+  gap: 0.625rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle {
+  color: #111827;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.toggleButton {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: #111827;
+  color: #fff;
+}
+
+.toggleButton:not(:disabled):hover {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.collapseWrap {
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease;
+}
+
+.open {
+  max-height: 100rem;
+  opacity: 1;
+  margin-top: 0.125rem;
+}
+
+.closed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  pointer-events: none;
+}

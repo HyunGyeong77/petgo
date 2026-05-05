@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from '@/providers/AuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import '@/styles/globals.css';
+import QueryProviders from '@/providers/QueryProviers';
 
 export const metadata: Metadata = {
   title: 'PetGo - 반려견을 더 잘 이해하는 방법',
@@ -19,15 +20,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <AuthProvider>
-          <ToastContainer
-            className="toast-container"
-            position="top-right"
-            autoClose={2000}
-            pauseOnHover={false}
-          />
-          {children}
-        </AuthProvider>
+        <QueryProviders>
+          <AuthProvider>
+            <ToastContainer
+              className="toast-container"
+              position="top-right"
+              autoClose={2000}
+              pauseOnHover={false}
+            />
+            {children}
+          </AuthProvider>
+        </QueryProviders>
       </body>
     </html>
   );
