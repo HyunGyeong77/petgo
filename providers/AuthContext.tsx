@@ -2,18 +2,20 @@
 
 import { createContext, useState, useEffect, useContext } from 'react';
 import { supabase } from '@/lib/supabase';
-import { User } from '@supabase/supabase-js';
+import { AuthChangeEvent, User } from '@supabase/supabase-js';
 import { showToast } from '@/utils/toast';
 import Loading from '@/components/ui/loading/Loading';
 
 type AuthContextType = {
   user: User | null
+  event: AuthChangeEvent | undefined
   logout: () => void
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [event, setEvent] = useState<AuthChangeEvent | undefined>();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -37,7 +39,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     // 로그인 변화가 감지되었을 때
     const { data } = supabase.auth.onAuthStateChange(
-      (_, session) => {
+      (event, session) => {
+        setEvent(event);
         setUser(session?.user ?? null);
       }
     );
@@ -63,7 +66,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, logout }}>
+    <AuthContext.Provider value={{ user, event, logout }}>
       {loading && <Loading />}
       {children}
     </AuthContext.Provider>

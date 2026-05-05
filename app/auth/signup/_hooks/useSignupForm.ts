@@ -62,31 +62,29 @@ export const useSignupForm = () => {
     const e = validateEmail(email);
 
     if(e.valid) {
-      if(e.valid) {
-        if(emailTimeout) clearTimeout(emailTimeout);
-  
-        emailTimeout = setTimeout(async () => {
-          try {
-            const { data, error } = await supabase
-              .rpc("check_email_exists", {
-                p_email: email
-              });
-            
-            if(error) throw new Error(error.message);
-            setIsValid({ ...isValid, email: data ? false : true });
-            setErrors({ ...errors, email: data ? "이미 사용중인 이메일입니다" : "" });
-          }
-          catch (err) {
-            console.log(err);
-          }
-        }, 300);
-      } else {
-        setIsValid({ ...isValid, nickname: nickname ? e.valid : undefined });
-        setErrors({ ...errors, nickname: nickname && !e.valid ? e.error : "" });
-      }
+      if(emailTimeout) clearTimeout(emailTimeout);
+
+      emailTimeout = setTimeout(async () => {
+        try {
+          const { data, error } = await supabase
+            .rpc("check_email_exists", {
+              p_email: email
+            });
+          
+          if(error) throw new Error(error.message);
+          setIsValid({ ...isValid, email: data ? false : true });
+          setErrors({ ...errors, email: data ? "이미 사용중인 이메일입니다" : "" });
+        }
+        catch (err) {
+          console.log(err);
+        }
+      }, 300);
+    } else {
+      setIsValid({ ...isValid, email: email ? e.valid : undefined });
+      setErrors({ ...errors, email: email && !e.valid ? e.error : "" });
     }
 
-    return () => clearTimeout(email);
+    return () => clearTimeout(emailTimeout);
   }, [email]);
 
   useEffect(() => {
