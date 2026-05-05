@@ -8,7 +8,7 @@ import { useMenu } from './_hooks/useMenu';
 import { ROUTES } from '@/constants/routes';
 
 const NAV_ITEMS = [
-  { label: '강아지 정보', href: '#preferences' },
+  { label: '강아지 정보', href: ROUTES.app.dogInfo },
   { label: '산책 가이드', href: '#walk' },
   { label: '용품', href: '#recommend' },
   { label: '병원 정보', href: '#hospital' },
@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header id="header" className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <Link href="#" className={styles.logo}>
+        <Link href={ROUTES.app.home} className={styles.logo}>
           <img src="/logo.png" alt="logo" />
         </Link>
 
