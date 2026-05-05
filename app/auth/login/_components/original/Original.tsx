@@ -3,7 +3,7 @@
 import { useLoginForm } from "./_hooks/useLoginForm";
 import Input from "@/components/ui/input/Input";
 import Button from "@/components/ui/button/Button";
-import { showToast } from "@/utils/toast";
+import { loginToast, showToast } from "@/utils/toast";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/constants/routes";
@@ -21,7 +21,7 @@ export default function Original() {
     e.preventDefault();
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -40,15 +40,9 @@ export default function Original() {
         }
         return;
       }
-
-      const { data, error: selectError } = await supabase.rpc("select_users", {
-        p_email: email
-      });
-
-      if(selectError) throw new Error(selectError.message);
       
       // 로그인 성공 처리 (예시: 환영 메시지)
-      showToast("success", `환영합니다! ${data}님`);
+      loginToast(data.user.user_metadata.display_name);
       router.push(ROUTES.app.home);
     } catch (err) {
       showToast("error", "아이디 또는 비밀번호가 다릅니다");

@@ -5,7 +5,7 @@ import Script from "next/script";
 import { auth } from '@/lib/firebase';
 import { useEffect } from 'react';
 import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
-import { showToast } from '@/utils/toast';
+import { loginToast, showToast } from '@/utils/toast';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import { ROUTES } from '@/constants/routes';
@@ -23,21 +23,14 @@ export default function Google() {
 
       const { error: loginError } = await supabase.auth.signInWithIdToken({
         provider: 'google',
-        token: idToken
+        token: idToken,
       });
 
       if(loginError) throw new Error(loginError.message);
 
-      const { error } = await supabase
-        .rpc("insert_google_user_if_not_exists", {
-          p_email: email,
-          p_display_name: displayName,
-          p_auth_provider: "google"
-        });
+      const nickname = displayName ? displayName : email;
 
-      if(error) throw new Error(error.message);
-
-      showToast("success", `환영합니다 ${displayName}님`);
+      loginToast(nickname!);
       router.push(ROUTES.app.home);
     } catch (err) {
       if(err instanceof Error) {
