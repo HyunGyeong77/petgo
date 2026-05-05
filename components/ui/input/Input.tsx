@@ -9,10 +9,12 @@ type InputProps = {
   type?: string;
   placeholder?: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   isValid?: boolean;
   required?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
   hint?: string[];
 };
 
@@ -25,6 +27,8 @@ const Input: React.FC<InputProps> = ({
   error,
   isValid,
   required = false,
+  disabled = false,
+  readonly = false,
   hint,
 }) => {
   // type이 password 일 때만 사용
@@ -47,6 +51,8 @@ const Input: React.FC<InputProps> = ({
         value={value}
         onChange={onChange}
         className={`${inputClass} ${typePassword && styles.inputPassword}`}
+        disabled={disabled}
+        readOnly={readonly}
       />
       {typePassword && 
         <button 

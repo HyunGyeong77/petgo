@@ -40,6 +40,43 @@
   }
 }
 
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus,
+.input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.input:not(:disabled):not(:read-only):focus,
+.input:not(:disabled):not(:read-only):focus-visible {
+  border-color: #f59e0b;
+}
+
+.input:disabled,
+.input:read-only {
+  border-color: #e5e7eb;
+  background-color: #f3f4f6;
+  color: #252525;
+  cursor: default;
+  opacity: 1;
+}
+
+.input:disabled::placeholder,
+.input:read-only::placeholder {
+  color: #9ca3af;
+}
+
+.input:disabled:focus,
+.input:disabled:focus-visible,
+.input:read-only:focus,
+.input:read-only:focus-visible {
+  border-color: #e5e7eb;
+  box-shadow: none;
+}
+
 .screenBtn {
   position: absolute;
   top: 1.8rem;
