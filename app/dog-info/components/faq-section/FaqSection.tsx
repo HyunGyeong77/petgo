@@ -20,7 +20,7 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
   };
 
   return (
-    <section className={styles.section}>
+    <section id="dog-info-faq" className={styles.section}>
       <div className={styles.inner}>
         <div
           className={styles.header}

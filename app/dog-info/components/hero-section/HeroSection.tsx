@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./hero-section.module.scss";
 
 type HeroSectionProps = {
@@ -14,11 +16,18 @@ export default function HeroSection({
   categoryCount,
 }: HeroSectionProps) {
   const stats = [
-    { label: "전체 글", value: totalArticles },
-    { label: "북마크", value: bookmarkedCount },
-    { label: "완료", value: completedCount },
-    { label: "카테고리", value: categoryCount },
+    { label: "전체 글", value: totalArticles, targetId: "dog-info-categories" },
+    { label: "북마크", value: bookmarkedCount, targetId: "dog-info-checklist" },
+    { label: "완료", value: completedCount, targetId: "dog-info-learning" },
+    { label: "카테고리", value: categoryCount, targetId: "dog-info-faq" },
   ];
+
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className={styles.hero}>
@@ -31,7 +40,13 @@ export default function HeroSection({
         </p>
         <div className={styles.stats}>
           {stats.map((stat, index) => (
-            <div key={index} className={styles.statCard}>
+            <div 
+              key={index} 
+              className={styles.statCard}
+              onClick={() => handleScroll(stat.targetId)}
+              role="button"
+              tabIndex={0}
+            >
               <p className={styles.statValue}>{stat.value}</p>
               <p className={styles.statLabel}>{stat.label}</p>
             </div>

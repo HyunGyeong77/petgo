@@ -31,7 +31,7 @@ export default function LearningPathSection() {
   const pathRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.08 });
 
   return (
-    <section className={styles.section}>
+    <section id="dog-info-learning" className={styles.section}>
       <div className={styles.inner}>
         <div
           className={styles.header}

@@ -41,7 +41,7 @@ export default function ChecklistSection({
   const progress = isLogin ? userCheckList?.length : checkedItems.length;
 
   return (
-    <section className={styles.section}>
+    <section id="dog-info-checklist" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.grid} ref={gridRef}>
           {/* Checklist card */}

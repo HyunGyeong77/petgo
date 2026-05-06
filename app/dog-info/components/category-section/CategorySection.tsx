@@ -21,7 +21,7 @@ export default function CategorySection({
   const gridRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <section className={styles.section}>
+    <section id="dog-info-categories" className={styles.section}>
       <div className={styles.inner}>
         <div
           className={styles.header}
