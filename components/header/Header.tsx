@@ -9,7 +9,7 @@ import { ROUTES } from '@/constants/routes';
 
 const NAV_ITEMS = [
   { label: '강아지 정보', href: ROUTES.app.dogInfo },
-  { label: '산책 가이드', href: '#walk' },
+  { label: '산책 가이드', href: ROUTES.app.walkingGuide },
   { label: '용품', href: '#recommend' },
   { label: '병원 정보', href: '#hospital' },
 ] as const;
