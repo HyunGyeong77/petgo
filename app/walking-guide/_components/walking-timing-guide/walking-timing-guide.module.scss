@@ -1,0 +1,80 @@
+.articleSection {
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.cardSubtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.articleCard {
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.articleTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.25rem;
+}
+
+.timingDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timingLabel {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.timingValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.timingNote {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .articleGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

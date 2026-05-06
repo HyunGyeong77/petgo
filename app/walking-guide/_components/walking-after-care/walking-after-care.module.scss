@@ -1,0 +1,58 @@
+.ctaSection {
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.ctaSubtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tipsItems {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tipItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  border-radius: 1rem;
+}
+
+.tipEmoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.tipText {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .tipsItems {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,150 @@
+.learningSection {
+  padding: 4rem 1rem;
+  background-color: #fef3c7;
+  scroll-margin-top: 4rem;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.cardSubtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.weatherTabList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.weatherTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.weatherTabActive {
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.sunny {
+  color: #f59e0b;
+  &.weatherTabActive { border-color: #f59e0b; }
+}
+
+.cloudy {
+  color: #6b7280;
+  &.weatherTabActive { border-color: #6b7280; }
+}
+
+.rainy {
+  color: #3b82f6;
+  &.weatherTabActive { border-color: #3b82f6; }
+}
+
+.snowy {
+  color: #06b6d4;
+  &.weatherTabActive { border-color: #06b6d4; }
+}
+
+.weatherIcon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0.5rem;
+}
+
+.weatherTabLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.weatherContent {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.weatherContentHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.weatherIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.weatherContentTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.weatherTipList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.weatherTipItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.weatherCheckIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.weatherTipText {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .weatherTabList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

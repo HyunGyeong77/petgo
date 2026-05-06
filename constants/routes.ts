@@ -9,6 +9,7 @@ export const ROUTES = {
   app: {
     home: "/",
     profile: "/profile",
-    dogInfo: "/dog-info"
+    dogInfo: "/dog-info",
+    walkingGuide: "/walking-guide"
   }
 }

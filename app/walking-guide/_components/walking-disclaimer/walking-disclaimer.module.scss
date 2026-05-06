@@ -1,0 +1,29 @@
+.disclaimerSection {
+  padding: 4rem 1rem;
+  background-color: #f3f4f6;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.disclaimerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.8;
+  text-align: center;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.disclaimerTitle {
+  font-weight: 700;
+  color: #4b5563;
+  margin-bottom: 1rem !important;
+  font-size: 1rem;
+}
