@@ -14,20 +14,21 @@
 # Profile Page 제작
 
 위치:
-`app/profile/*`
+`education/[category]/[level]/[id]/*`
 
 요구사항:
-- 프로필 페이지 제작
-- `app/profile/page.tsx` 라우팅 대상 파일
+- 포스트 페이지 제작
+- `education/[category]/[level]/[id]/page.tsx` 라우팅 대상 파일
 - 디폴트 색상
   - #f59e0b,
-  - #111827, 
-  - #fff, 
+  - #ff9a3c,
+  - #ff6b6b,
+  - #ff9a3c1a,
+  - #111827,
   - #fef3c7
-- 닉네임, 이메일, 패스워드, 닉네임 변경, 패스워드 변경, 찜, 장바구니, 북마크, 계정 삭제 버튼 포함
-- 이메일 변경 불가
-- 패스워드 `type="password"`
-- 닉네임, 패스워드 기본 변경 불가 상태
-  - 닉네임 변경 버튼을 통해 패스워드 입력 시 닉네임 변경 가능
-  - 패스워드 변경 버튼을 통해 가입한 이메일 인증 시 패스워드 변경 가능
-- Wrapper를 뷰포트 정중앙에 위치
+- 뒤로가기 버튼 포함
+- article 프로퍼티
+  - title / 제목
+  - level / 수준
+  - readtime / 읽는 시간
+  - content / 내용
