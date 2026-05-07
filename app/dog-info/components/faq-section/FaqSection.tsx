@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { useScrollAnimation } from "../../lib/use-scroll-animation";
-import { type FaqItem } from "../../dog-info.data";
+import { type FaqItem as FaqData } from "../../dog-info.data";
 import styles from "./faq-section.module.scss";
+import FaqItem from "./faq-item/FaqItem";
 
 type FaqSectionProps = {
-  faqs: FaqItem[];
+  faqs: FaqData[];
 };
 
 export default function FaqSection({ faqs }: FaqSectionProps) {
@@ -33,35 +33,16 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
           </p>
         </div>
         <div className={styles.list} ref={listRef}>
-          {faqs.map((faq, index) => {
-            const isOpen = expandedIndex === index;
-            return (
-              <div
-                key={index}
-                className={`${styles.item} ${isOpen ? styles.open : ""}`}
-                data-animate="hidden"
-                style={{ "--delay": `${index * 70}ms` } as React.CSSProperties}
-              >
-                <button
-                  onClick={() => toggle(index)}
-                  className={styles.question}
-                  aria-expanded={isOpen}
-                >
-                  <span>{faq.q}</span>
-                  <ChevronDown
-                    width={18}
-                    height={18}
-                    className={`${styles.icon} ${isOpen ? styles.rotated : ""}`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className={styles.answer}>
-                    <p>{faq.a}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {faqs.map((faq, index) => (
+            <FaqItem
+              key={index}
+              index={index}
+              question={faq.q}
+              answer={faq.a}
+              isOpen={expandedIndex === index}
+              onToggle={() => toggle(index)}
+            />
+          ))}
         </div>
       </div>
     </section>
