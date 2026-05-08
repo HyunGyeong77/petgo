@@ -2,8 +2,10 @@ import styles from './category-block.module.scss';
 import { useState, useEffect, useCallback } from 'react';
 import ProductCard from '../productCard/ProductCard';
 import { Products } from '../Recommend';
+import Link from 'next/link';
+import { ROUTES } from '@/constants/routes';
 
-export default function CategoryBlock({ products }: { products: Products }) {
+export default function CategoryBlock({ products, category }: { products: Products, category: number }) {
   const [activeTab, setActiveTab] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(5);
@@ -108,10 +110,10 @@ export default function CategoryBlock({ products }: { products: Products }) {
       </div>
 
       <div className={styles.moreLink}>
-        <a href="#" className={styles.moreLinkBtn}>
+        <Link href={`${ROUTES.app.supplies}?category=${category}`} className={styles.moreLinkBtn}>
           <strong>{products.label}</strong> 더 알아보기
           <i className="ri-arrow-right-line" />
-        </a>
+        </Link>
       </div>
 
       <div className={styles.divider} />

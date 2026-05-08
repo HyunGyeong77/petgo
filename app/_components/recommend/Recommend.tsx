@@ -65,7 +65,7 @@ export default function Recommend() {
         <div className={styles.card}>
           {Object.values(products).map((product, idx) => (
             <ScrollReveal key={product.label} delay={idx as 0 | 1 | 2 | 3 | 4 | 5}>
-              <CategoryBlock products={product} />
+              <CategoryBlock products={product} category={idx + 1} />
             </ScrollReveal>
           ))}
         </div>

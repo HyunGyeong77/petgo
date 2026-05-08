@@ -10,6 +10,7 @@ export const ROUTES = {
     home: "/",
     profile: "/profile",
     dogInfo: "/dog-info",
-    walkingGuide: "/walking-guide"
+    walkingGuide: "/walking-guide",
+    supplies: "/supplies"
   }
 }
