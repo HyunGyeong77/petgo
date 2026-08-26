@@ -1,7 +1,7 @@
 import styles from './category-block.module.scss';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import ProductCard from '../productCard/ProductCard';
-import { Products } from '../Recommend';
+import { Products } from '@/features/recommend/types/recommend.types';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 
@@ -11,33 +11,39 @@ export default function CategoryBlock({ products, category }: { products: Produc
   const [itemsToShow, setItemsToShow] = useState(5);
 
   const currentCategories = Object.values(products.categories);
-  const activeProducts = Object.values(currentCategories[activeTab]?.products || {});
+  const activeProducts = Object.values(currentCategories[activeTab]?.products ?? {});
   const totalProducts = activeProducts.length;
 
-  const updateItemsToShow = useCallback(() => {
-    if (window.innerWidth < 768) {
-      setItemsToShow(1);
-    } else if (window.innerWidth < 1024) {
-      setItemsToShow(3);
-    } else {
-      setItemsToShow(5);
-    }
+  const isPrevDisabled = currentIndex === 0;
+  const isNextDisabled = currentIndex >= totalProducts - itemsToShow || totalProducts <= itemsToShow;
+
+  useEffect(() => {
+    const updateItemsToShow = () => {
+      if (window.innerWidth < 768) {
+        setItemsToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsToShow(3);
+      } else {
+        setItemsToShow(5);
+      }
+    };
+
+    updateItemsToShow();
+
+    window.addEventListener('resize', updateItemsToShow);
+    
+    return () => window.removeEventListener('resize', updateItemsToShow);
   }, []);
 
-  useEffect(() => {
-    updateItemsToShow();
-    window.addEventListener('resize', updateItemsToShow);
-    return () => window.removeEventListener('resize', updateItemsToShow);
-  }, [updateItemsToShow]);
-
-  // Reset index when tab changes
-  useEffect(() => {
+  const handleTabChange = (index: number) => {
+    setActiveTab(index);
     setCurrentIndex(0);
-  }, [activeTab]);
+  }
 
   const nextSlide = () => {
     if (currentIndex < totalProducts - itemsToShow) {
       const nextIndex = Math.min(currentIndex + itemsToShow, totalProducts - itemsToShow);
+
       setCurrentIndex(nextIndex);
     }
   };
@@ -45,12 +51,10 @@ export default function CategoryBlock({ products, category }: { products: Produc
   const prevSlide = () => {
     if (currentIndex > 0) {
       const prevIndex = Math.max(currentIndex - itemsToShow, 0);
+
       setCurrentIndex(prevIndex);
     }
   };
-
-  const isPrevDisabled = currentIndex === 0;
-  const isNextDisabled = currentIndex >= totalProducts - itemsToShow || totalProducts <= itemsToShow;
 
   return (
     <div className={styles.categoryBlock}>
@@ -63,7 +67,7 @@ export default function CategoryBlock({ products, category }: { products: Produc
           <button
             key={sub.label}
             className={`${styles.tab} ${activeTab === idx ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab(idx)}
+            onClick={() => handleTabChange(idx)}
           >
             {sub.label}
           </button>

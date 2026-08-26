@@ -1,0 +1,1 @@
+export { useHospitalRegion } from './useHospitalRegion';

@@ -1,5 +1,5 @@
 import styles from './product-card.module.scss';
-import { Product } from '../Recommend';
+import { Product } from '@/features/recommend/types/recommend.types';
 
 export default function ProductCard({ product }: { product: Product }) {
   const priceFormat = parseInt(product.price);

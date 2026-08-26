@@ -1,50 +1,29 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './recommend.module.scss';
-import { supabase } from '@/lib/supabase';
 import { showToast } from '@/utils/toast';
 import CategoryBlock from './category-block/CategoryBlock';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';
-
-export interface Product {
-  description: string;
-  image: string;
-  name: string;
-  price: string;
-}
-
-export interface Category {
-  label: string;
-  products: Product[];
-}
-
-export interface Products {
-  categories: Category[];
-  label: string;
-}
+import { getCategoryTree } from '@/features/recommend/api/recommend-api';
+import { Products } from '@/features/recommend/types/recommend.types';
 
 export default function Recommend() {
   const [products, setProducts] = useState<Products | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetch = async () => {
       try {
-        const { data, error } = await supabase
-          .from('category_tree')
-          .select('result')
-          .single();
+        const data = await getCategoryTree();
 
-        if (error) { throw new Error(error.message); }
-
-        setProducts(data.result);
+        setProducts(data);
       } catch (err) {
         console.error('Error: ', err);
         showToast('error', '상품 목록을 불러오는데 실패했습니다.');
       }
     };
 
-    fetchData();
+    fetch();
   }, []);
 
   if (!products) return null;
