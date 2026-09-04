@@ -1,71 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
 import styles from "./hospital.module.scss";
-import { showToast } from "@/utils/toast";
 import HospitalRegion from "./HospitalRegion";
 import ScrollReveal from "@/components/ui/scroll-reveal/ScrollReveal";
 import { Regions } from "../types/hospital.types";
-import { getSidoRegions, getRegionTree } from "../api/hospital-api";
-import { useHospitalRegion } from "../hook/useHospitalRegion";
+import { useHospitalRegion } from "../hooks/useHospitalRegion";
 import { SIDO_NAME, SIGUNGU_NAME } from "../constants/region";
+import { useHospitalRegionQuery } from "../hooks/useHospitalRegionQuery/useHospitalRegionQuery";
 
 export default function Hospital() {
   const { state, dispatch } = useHospitalRegion();
 
+  const sidoRegions = useHospitalRegionQuery([1]);
+  const districtRegions = useHospitalRegionQuery([2], state.district.code);
+  const dongRegions = useHospitalRegionQuery([3, 4], state.dong.code);
+
   const canSearch = state.city.name !== SIDO_NAME && state.district.name !== SIGUNGU_NAME;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getSidoRegions();
-
-        dispatch({ type: "SET_SIDO_REGIONS", payload: data });
-      } catch (err) {
-        showToast("error", "지역을 불러오는데 실패했습니다.");
-
-        console.log(err);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (state.city.name === SIDO_NAME) return;
-
-    const fetch = async () => {
-      try {
-        const data = await getRegionTree([2], state.city.code);
-
-        console.log(data);
-
-        dispatch({ type: "SET_DISTRICT_REGIONS", payload: data });
-      } catch (err) {
-        showToast("error", "시/도 목록을 불러오는데 실패했습니다.");
-        console.log(err);
-      }
-    };
-
-    fetch();
-  }, [state.city]);
-
-  useEffect(() => {
-    if (state.city.name === SIDO_NAME) return;
-
-    const fetch = async () => {
-      try {
-        const data = await getRegionTree([3, 4], state.district.code);
-
-        dispatch({ type: "SET_DONG_REGIONS", payload: data });
-      } catch (err) {
-        showToast("error", "하위 목록을 불러오는데 실패했습니다.");
-        console.log(err);
-      }
-    };
-
-    fetch();
-  }, [state.district]);
 
   const regionClick = (region: Regions) => {
     if (!region) return null;
@@ -99,7 +49,7 @@ export default function Hospital() {
           <ScrollReveal delay={1}>
             <HospitalRegion
               region={state.city.name}
-              regions={state.sidoRegions}
+              regions={sidoRegions.data}
               parent={true}
               onClick={regionClick}
               isSido={true}
@@ -109,7 +59,7 @@ export default function Hospital() {
           <ScrollReveal delay={2}>
             <HospitalRegion
               region={state.district.name}
-              regions={state.districtRegions}
+              regions={districtRegions.data}
               parent={state.city.name !== SIDO_NAME}
               onClick={regionClick}
             />
@@ -118,7 +68,7 @@ export default function Hospital() {
           <ScrollReveal delay={3}>
             <HospitalRegion
               region={state.dong.name}
-              regions={state.dongRegions}
+              regions={dongRegions.data}
               parent={state.district.name !== SIGUNGU_NAME}
               onClick={regionClick}
             />

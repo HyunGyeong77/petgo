@@ -12,9 +12,6 @@ export function regionReducer(state: RegionState, action: RegionAction): RegionS
 
         district: { name: SIGUNGU_NAME, code: action.payload.code, level: action.payload.level },
         dong: { name: EUPMYEONDONG_NAME },
-
-        districtRegions: null,
-        dongRegions: null
       };
 
     case "SELECT_DISTRICT":
@@ -25,8 +22,6 @@ export function regionReducer(state: RegionState, action: RegionAction): RegionS
         district: action.payload,
 
         dong: { name: EUPMYEONDONG_NAME, code: action.payload.code, level: action.payload.level },
-
-        dongRegions: null
       };
 
     case "SELECT_DONG":
@@ -36,30 +31,6 @@ export function regionReducer(state: RegionState, action: RegionAction): RegionS
         ...state,
         dong: action.payload
       };
-
-    case "SET_SIDO_REGIONS":
-      if (state.sidoRegions === action.payload) return state;
-
-      return {
-        ...state,
-        sidoRegions: action.payload
-      }
-
-    case "SET_DISTRICT_REGIONS":
-      if (state.districtRegions === action.payload) return state;
-
-      return {
-        ...state,
-        districtRegions: action.payload
-      }
-
-    case "SET_DONG_REGIONS":
-      if (state.dongRegions === action.payload) return state;
-
-      return {
-        ...state,
-        dongRegions: action.payload
-      }
 
     default:
       return state;

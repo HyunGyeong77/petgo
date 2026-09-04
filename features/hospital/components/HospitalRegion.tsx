@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 
 interface Props {
   region: string;
-  regions: Regions[] | null;
+  regions: Regions[] | undefined;
   parent?: boolean;
   onClick: (region: Regions) => void;
   isSido?: boolean;
