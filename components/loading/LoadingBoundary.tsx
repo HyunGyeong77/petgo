@@ -1,10 +1,10 @@
 import React from "react";
-import CardSkeleton from "../ui/loading/CardSkeleton";
+import CardSkeleton from "../ui/loading/card-skeleton/CardSkeleton";
 
 export function LoadingBoundary({
   isLoading,
   children,
-  fallback = <CardSkeleton width={"100px"} />,
+  fallback = <CardSkeleton />,
 }: {
   isLoading: boolean;
   children: React.ReactNode;
