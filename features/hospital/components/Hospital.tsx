@@ -8,6 +8,7 @@ import { useHospitalRegion } from "../hooks/useHospitalRegion";
 import { SIDO_NAME, SIGUNGU_NAME } from "../constants/region";
 import { useHospitalRegionQuery } from "../hooks/useHospitalRegionQuery/useHospitalRegionQuery";
 import { LoadingBoundary } from "@/components/loading/LoadingBoundary";
+import CardSkeleton from "@/components/ui/loading/card-skeleton/CardSkeleton";
 
 export default function Hospital() {
   const { state, dispatch } = useHospitalRegion();
@@ -16,7 +17,8 @@ export default function Hospital() {
   const districtRegions = useHospitalRegionQuery([2], state.district.code);
   const dongRegions = useHospitalRegionQuery([3, 4], state.dong.code);
 
-  const canSearch = state.city.name !== SIDO_NAME && state.district.name !== SIGUNGU_NAME;
+  const canSearch =
+    state.city.name !== SIDO_NAME && state.district.name !== SIGUNGU_NAME;
 
   const regionClick = (region: Regions) => {
     if (!region) return null;
@@ -45,7 +47,10 @@ export default function Hospital() {
         </ScrollReveal>
 
         <div className={styles.filterRow}>
-          <LoadingBoundary isLoading={sidoRegions.isPending}>
+          <LoadingBoundary
+            isLoading={sidoRegions.isPending}
+            fallback={<CardSkeleton width={"100px"} />}
+          >
             <ScrollReveal delay={1}>
               <HospitalRegion
                 region={state.city.name}
