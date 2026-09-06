@@ -1,5 +1,5 @@
 import styles from './preference-card.module.scss';
-import { PreferenceCard as CardType } from '../Preferences';
+import { PreferenceCard as CardType } from '@/features/preference/types/preference.types';
 
 export default function PreferenceCard({ card }: { card: CardType }) {
   return (
