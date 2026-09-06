@@ -2,13 +2,8 @@
   position: relative;
 }
 
-.city {width: 150px;}
-.notCity {
-  width: 150px;
-  
-  @media (min-width: 500px) {
-    width: 120px;
-  }
+.city {
+  min-width: 120px;
 }
 
 .select {

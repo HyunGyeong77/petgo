@@ -7,6 +7,7 @@ import { Regions } from "../types/hospital.types";
 import { useHospitalRegion } from "../hooks/useHospitalRegion";
 import { SIDO_NAME, SIGUNGU_NAME } from "../constants/region";
 import { useHospitalRegionQuery } from "../hooks/useHospitalRegionQuery/useHospitalRegionQuery";
+import { LoadingBoundary } from "@/components/loading/LoadingBoundary";
 
 export default function Hospital() {
   const { state, dispatch } = useHospitalRegion();
@@ -36,8 +37,6 @@ export default function Hospital() {
     }
   };
 
-  if (!state.city) return null;
-
   return (
     <section id="hospital" className={styles.section}>
       <div className={styles.inner}>
@@ -46,15 +45,17 @@ export default function Hospital() {
         </ScrollReveal>
 
         <div className={styles.filterRow}>
-          <ScrollReveal delay={1}>
-            <HospitalRegion
-              region={state.city.name}
-              regions={sidoRegions.data}
-              parent={true}
-              onClick={regionClick}
-              isSido={true}
-            />
-          </ScrollReveal>
+          <LoadingBoundary isLoading={sidoRegions.isPending}>
+            <ScrollReveal delay={1}>
+              <HospitalRegion
+                region={state.city.name}
+                regions={sidoRegions.data}
+                parent={true}
+                onClick={regionClick}
+                isSido={true}
+              />
+            </ScrollReveal>
+          </LoadingBoundary>
 
           <ScrollReveal delay={2}>
             <HospitalRegion
