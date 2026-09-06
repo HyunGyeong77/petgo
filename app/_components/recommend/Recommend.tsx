@@ -1,32 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import styles from './recommend.module.scss';
-import { showToast } from '@/utils/toast';
 import CategoryBlock from './category-block/CategoryBlock';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';
-import { getCategoryTree } from '@/features/recommend/api/recommend-api';
-import { Products } from '@/features/recommend/types/recommend.types';
+import { useRecommendCategoryTree } from '@/features/recommend/hooks/useRecommend';
+import { LoadingBoundary } from '@/components/loading/LoadingBoundary';
+import RecommendSkeleton from '@/components/ui/loading/recommend-skeleton/RecommendSkeleton';
 
 export default function Recommend() {
-  const [products, setProducts] = useState<Products | null>(null);
-
-  useEffect(() => {
-    const fetch = async () => {
-      try {
-        const data = await getCategoryTree();
-
-        setProducts(data);
-      } catch (err) {
-        console.error('Error: ', err);
-        showToast('error', '상품 목록을 불러오는데 실패했습니다.');
-      }
-    };
-
-    fetch();
-  }, []);
-
-  if (!products) return null;
+  const parentCategories = useRecommendCategoryTree();
 
   return (
     <section id="recommend" className={styles.section}>
@@ -41,13 +23,18 @@ export default function Recommend() {
           </div>
         </ScrollReveal>
 
-        <div className={styles.card}>
-          {Object.values(products).map((product, idx) => (
-            <ScrollReveal key={product.label} delay={idx as 0 | 1 | 2 | 3 | 4 | 5}>
-              <CategoryBlock products={product} category={idx + 1} />
-            </ScrollReveal>
-          ))}
-        </div>
+        <LoadingBoundary 
+          isLoading={parentCategories.isPending}
+          fallback={<RecommendSkeleton />}  
+        >
+          <div className={styles.card}>
+            {parentCategories.data?.map((parent, idx) => (
+              <ScrollReveal key={parent.label} delay={idx as 0 | 1 | 2 | 3 | 4 | 5}>
+                <CategoryBlock parentCategory={parent} category={idx + 1} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </LoadingBoundary>
       </div>
     </section>
   );

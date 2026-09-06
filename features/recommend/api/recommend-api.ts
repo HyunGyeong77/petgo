@@ -1,13 +1,10 @@
-import { supabase } from "@/lib/supabase";
 import { Products } from "../types/recommend.types";
+import { api } from "@/shared/api/axiosInstance";
 
-export const getCategoryTree = async (): Promise<Products> => {
-  const { data, error } = await supabase
-    .from('category_tree')
-    .select('result')
-    .single();
+const RECOMMEND_API_URL = "/api/recommend";
 
-  if (error) throw new Error(error.message);
+export const getCategoryTree = async (): Promise<Products[]> => {
+  const response = await api.get(`${RECOMMEND_API_URL}/category/all`);
 
-  return data.result;
+  return response.data;
 }

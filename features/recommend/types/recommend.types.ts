@@ -12,6 +12,6 @@ export interface Category {
 }
 
 export interface Products {
-  categories: Category[];
   label: string;
+  categories: Category[];
 }

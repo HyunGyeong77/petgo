@@ -5,12 +5,12 @@ import { Products } from '@/features/recommend/types/recommend.types';
 import Link from 'next/link';
 import { ROUTES } from '@/constants/routes';
 
-export default function CategoryBlock({ products, category }: { products: Products, category: number }) {
+export default function CategoryBlock({ parentCategory, category }: { parentCategory: Products, category: number }) {
   const [activeTab, setActiveTab] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(5);
 
-  const currentCategories = Object.values(products.categories);
+  const currentCategories = Object.values(parentCategory.categories);
   const activeProducts = Object.values(currentCategories[activeTab]?.products ?? {});
   const totalProducts = activeProducts.length;
 
@@ -59,7 +59,7 @@ export default function CategoryBlock({ products, category }: { products: Produc
   return (
     <div className={styles.categoryBlock}>
       <div className={styles.categoryHeader}>
-        <h3 className={styles.categoryTitle}>{products.label}</h3>
+        <h3 className={styles.categoryTitle}>{parentCategory.label}</h3>
       </div>
 
       <div className={styles.tabs}>
@@ -115,7 +115,7 @@ export default function CategoryBlock({ products, category }: { products: Produc
 
       <div className={styles.moreLink}>
         <Link href={`${ROUTES.app.supplies}?category=${category}`} className={styles.moreLinkBtn}>
-          <strong>{products.label}</strong> 더 알아보기
+          <strong>{parentCategory.label}</strong> 더 알아보기
           <i className="ri-arrow-right-line" />
         </Link>
       </div>
