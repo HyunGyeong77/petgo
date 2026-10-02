@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './walking-timing-guide.module.scss';
 import { timingGuide } from '../../walking-guide.data';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';

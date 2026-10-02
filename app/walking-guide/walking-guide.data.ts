@@ -1,5 +1,3 @@
-import { supabase } from "@/lib/supabase";
-
 export type WalkingCourse = {
   id: number;
   name: string;

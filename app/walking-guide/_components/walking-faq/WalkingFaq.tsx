@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './walking-faq.module.scss';
 import { faqData } from '../../walking-guide.data';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';

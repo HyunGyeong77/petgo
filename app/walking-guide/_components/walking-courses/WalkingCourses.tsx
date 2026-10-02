@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapPin, Clock } from 'lucide-react';
 import styles from './walking-courses.module.scss';
 import { walkingCourses, WalkingCourse } from '../../walking-guide.data';

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './walking-safety-tips.module.scss';
 import { safetyTips } from '../../walking-guide.data';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';

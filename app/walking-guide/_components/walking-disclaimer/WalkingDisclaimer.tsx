@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './walking-disclaimer.module.scss';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';
 

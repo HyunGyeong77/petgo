@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Sun, Cloud, Droplets, Snowflake, CheckCircle } from 'lucide-react';
 import styles from './walking-weather-tips.module.scss';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';

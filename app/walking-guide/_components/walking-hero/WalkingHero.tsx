@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import styles from './walking-hero.module.scss';
 import { walkingCourses, safetyTips, faqData } from '../../walking-guide.data';
 
