@@ -5,7 +5,7 @@ import CategoryBlock from './category-block/CategoryBlock';
 import ScrollReveal from '@/components/ui/scroll-reveal/ScrollReveal';
 import { useRecommendCategoryTree } from '@/features/recommend/hooks/useRecommend';
 import { LoadingBoundary } from '@/components/loading/LoadingBoundary';
-import RecommendSkeleton from '@/components/ui/loading/recommend-skeleton/RecommendSkeleton';
+import { ContentSkeleton } from '@/components/ui/loading/content-skeleton/ContentSkeleton';
 
 export default function Recommend() {
   const parentCategories = useRecommendCategoryTree();
@@ -25,7 +25,7 @@ export default function Recommend() {
 
         <LoadingBoundary 
           isLoading={parentCategories.isPending}
-          fallback={<RecommendSkeleton />}  
+          fallback={<ContentSkeleton />}  
         >
           <div className={styles.card}>
             {parentCategories.data?.map((parent, idx) => (
