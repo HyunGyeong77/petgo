@@ -1,16 +1,6 @@
 "use client";
 
-import React from 'react';
-import styles from './page.module.scss';
-import Input from '@/components/ui/input/Input';
-import Button from '@/components/ui/button/Button';
-import Checkbox from '@/components/ui/checkbox/Checkbox';
-import { useSignupForm } from './_hooks/useSignupForm';
-import { supabase } from '@/lib/supabase';
-import { showToast } from '@/utils/toast';
-import { useRouter } from 'next/navigation';
-import Link from '@/components/ui/link/Link';
-import { ROUTES } from '@/constants/routes';
+import { handleApiError } from "@/common/utils/handleApiError";
 
 export default function Page() {
   const {

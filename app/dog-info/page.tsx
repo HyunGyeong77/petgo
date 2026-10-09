@@ -16,7 +16,7 @@ import Footer from "@/components/footer/Footer";
 import { supabase } from "@/lib/supabase";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/providers/AuthContext";
-import { showToast } from "@/utils/toast";
+import { showToast } from "@/common/utils/toast";
 import { useUserCheckList } from "@/hooks/useUserCheckList";
 import { useUserBookmark } from "@/hooks/useUserBookmark";
 

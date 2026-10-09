@@ -47,3 +47,7 @@ button {
 .toast-container {
   top: 80px;
 }
+
+.Toastify__toast {
+  white-space: pre-line;
+}
