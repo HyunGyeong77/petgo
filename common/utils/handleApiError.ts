@@ -1,14 +1,19 @@
 import axios from 'axios';
-import { showToast } from './toast';
+import { ErrorResponse } from '../types/ApiError';
+import { apiExceptionErrorToast, unableServerToast, unknownErrorToast } from './toast';
 
-export const handleApiError = (error: unknown, toast: () => void) => {
-  if (axios.isAxiosError(error) && !error.response) {
-    toast();
+export const handleApiError = (error: unknown) => {
+  if (!axios.isAxiosError<ErrorResponse>(error)) {
+    unknownErrorToast();
     return;
   }
 
-  if (error instanceof Error) {
-    showToast("error", error.message);
+  const response = error.response;
+
+  if (!response) {
+    unableServerToast();
     return;
   }
-}
+
+  apiExceptionErrorToast(response.data);
+};
